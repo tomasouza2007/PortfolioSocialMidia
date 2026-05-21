@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Barbara Luisa - Social Media &amp; Criadora de Conteudo</title>
+<title>Seu Nome - Social Media &amp; Criadora de Conteudo</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--black:#0a0a0a;--red:#cc1a1a;--red2:#e02020;--white:#f5f0eb;--g1:#1a1a1a;--g2:#2a2a2a;--gt:#888;}
@@ -51,7 +51,7 @@ section{padding:100px 60px;}
 .stitle{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,58px);font-weight:900;line-height:1.1;color:var(--white);margin-bottom:24px;}
 .stitle em{font-style:italic;color:var(--red);}
 #sobre{background:var(--g1);position:relative;overflow:hidden;}
-#sobre::before{content:'BARBARA';position:absolute;top:-20px;right:-20px;font-family:'Playfair Display',serif;font-size:200px;font-weight:900;color:rgba(255,255,255,.02);pointer-events:none;white-space:nowrap;}
+#sobre::before{content:'SEU NOME';position:absolute;top:-20px;right:-20px;font-family:'Playfair Display',serif;font-size:200px;font-weight:900;color:rgba(255,255,255,.02);pointer-events:none;white-space:nowrap;}
 .sgrid{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:center;position:relative;z-index:1;}
 .sphotos{display:grid;grid-template-columns:1fr;grid-template-rows:460px;gap:0;}
 .sphoto{overflow:hidden;position:relative;background:transparent;}
@@ -89,8 +89,10 @@ section{padding:100px 60px;}
 .vinfo{padding:16px;}
 .vname{font-size:13px;font-weight:700;color:var(--white);margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .vdate{font-size:11px;color:var(--gt);}
-.vdel{position:absolute;top:10px;right:10px;background:rgba(204,26,26,.8);border:none;color:white;width:28px;height:28px;border-radius:50%;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;}
+.vcaption{font-size:12px;color:#aaa;margin-top:6px;line-height:1.5;}
+.vdel{position:absolute;top:10px;right:10px;background:rgba(204,26,26,.8);border:none;color:white;width:28px;height:28px;border-radius:50%;font-size:14px;cursor:pointer;display:none;align-items:center;justify-content:center;}
 .vcard:hover .vdel{opacity:1;}
+body.is-admin .vdel{display:flex;}
 .empty{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--gt);}
 .eico{font-size:48px;margin-bottom:16px;opacity:.4;}
 #servicos{display:none;}
@@ -136,6 +138,8 @@ footer{background:var(--g1);padding:40px 60px;display:flex;align-items:center;ju
 .toast{position:fixed;bottom:30px;right:30px;background:var(--g2);color:var(--white);padding:14px 22px;font-size:13px;font-weight:600;border-left:3px solid var(--red);z-index:9999;opacity:0;transform:translateX(20px);transition:all .3s;pointer-events:none;}
 .toast.show{opacity:1;transform:translateX(0);}
 .toast.ok{border-color:#22c55e;}
+.wabtn{position:fixed;bottom:90px;right:28px;width:56px;height:56px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:9997;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:transform .2s,box-shadow .2s;cursor:none;}
+.wabtn:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,.6);}
 @media(max-width:900px){
   nav{padding:20px 28px;}
   .nav-links{display:none;}
@@ -154,8 +158,11 @@ footer{background:var(--g1);padding:40px 60px;display:flex;align-items:center;ju
 <div class="cursor" id="cur"></div>
 <div class="cring" id="cring"></div>
 <div class="toast" id="toast"></div>
+<a href="https://wa.me/5568992547857" target="_blank" class="wabtn" aria-label="WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 <nav id="nav">
-  <a href="#hero" class="nav-logo">B<span>.</span>Luisa</a>
+  <a href="#hero" class="nav-logo">S<span>.</span>Nome</a>
   <ul class="nav-links">
     <li><a href="#sobre">Sobre</a></li>
     <li><a href="#trabalhos">Trabalhos</a></li>
@@ -167,7 +174,7 @@ footer{background:var(--g1);padding:40px 60px;display:flex;align-items:center;ju
   <div class="hbg"></div><div class="hlines"></div>
   <div class="hcontent fade-up">
     <div class="htag">Social Media &amp; Criadora de Conteudo</div>
-    <h1 class="hname">Barbara<br><em>Luisa</em></h1>
+    <h1 class="hname">Seu<br><em>Nome</em></h1>
     <p class="hdesc">Transformo marcas em presenca digital real com estrategia, estetica e conteudo que conecta, inspira e converte em resultados.</p>
     <div class="hcta">
       <a href="#trabalhos" class="btn-p">Ver Trabalhos</a>
@@ -177,7 +184,7 @@ footer{background:var(--g1);padding:40px 60px;display:flex;align-items:center;ju
   <div class="himg fade-up" style="transition-delay:.2s">
     <div class="hphoto-wrap">
       <div class="hphoto-frame"></div>
-      <img src="1.png" alt="Barbara Luisa" class="hphoto">
+      <img src="1.png" alt="Seu Nome" class="hphoto">
     </div>
   </div>
   <div class="hstats fade-up" style="transition-delay:.4s">
@@ -198,9 +205,9 @@ footer{background:var(--g1);padding:40px 60px;display:flex;align-items:center;ju
     </div>
     <div class="stext fade-up" style="transition-delay:.15s">
       <div class="slbl">Sobre mim</div>
-      <h2 class="stitle">Barbara <em>Luisa</em><br>M. Santos</h2>
-      <p>Ola! Sou <strong>Social Media e Criadora de Conteudo</strong> com formacao tecnica em Informatica para Internet pelo IFAC e graduanda em Direito pela UniNorte. Essa combinacao unica me da uma visao estrategica diferenciada no universo digital.</p>
-      <p>Busco constantemente evoluir no ambito academico e pessoal, valorizando <strong>disciplina, estrategia e excelencia</strong> em tudo que me proponho a fazer. Meu proposito e construir uma trajetoria solida, unindo conhecimento, lideranca e impacto positivo na sociedade.</p>
+      <h2 class="stitle">Seu <em>Nome</em></h2>
+      <p>Ola! Sou <strong>Social Media e Criadora de Conteudo</strong> — adicione sua bio aqui.</p>
+      <p>Adicione mais informações sobre você aqui.</p>
       <div class="skgrid">
         <div class="sktag">Edicao Audiovisual</div>
         <div class="sktag">Design Grafico</div>
@@ -217,6 +224,11 @@ footer{background:var(--g1);padding:40px 60px;display:flex;align-items:center;ju
 <section id="trabalhos">
   <div class="theader">
     <div><div class="slbl">Portfolio</div><h2 class="stitle">Meus <em>Trabalhos</em></h2></div>
+    <button id="admin-logout" onclick="sessionStorage.removeItem('sb_token');location.href=location.pathname;" style="display:none;background:transparent;border:1px solid rgba(204,26,26,.4);color:#888;padding:8px 16px;font-size:11px;font-family:'Syne',sans-serif;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;">Sair</button>
+  </div>
+  <!-- ADMIN: para fazer upload de vídeos, acesse a URL com ?admin=1 e faça login -->
+  <div id="admin-tools" style="display:none;margin-bottom:16px;">
+    <input type="text" id="vcaption" placeholder="Legenda para o próximo vídeo (opcional)" style="width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#f5f0eb;padding:12px 16px;font-size:13px;font-family:'Syne',sans-serif;outline:none;box-sizing:border-box;">
   </div>
   <div class="uzone fade-up" id="uzone">
     <input type="file" id="vinput" accept="video/*" multiple>
@@ -227,7 +239,11 @@ footer{background:var(--g1);padding:40px 60px;display:flex;align-items:center;ju
     <div class="usta" id="usta"></div>
   </div>
   <div class="vgrid" id="vgrid">
-    <div class="empty" id="empty"><div class="eico">&#127916;</div><p>Nenhum video ainda.<br>Faca upload acima para comecar!</p></div>
+    <div class="empty" id="empty">
+      <div class="eico">&#127916;</div>
+      <p style="font-size:15px;font-weight:600;color:var(--white);margin-bottom:8px;">Em breve, novos conteúdos por aqui.</p>
+      <p style="font-size:13px;color:var(--gt);max-width:400px;margin:0 auto;line-height:1.8;">Este portfólio conta com uma área administrativa exclusiva onde os vídeos são enviados e gerenciados diretamente pelo site — sem precisar mexer em código.</p>
+    </div>
   </div>
 </section>
 <section id="servicos">
@@ -246,7 +262,7 @@ footer{background:var(--g1);padding:40px 60px;display:flex;align-items:center;ju
         <li>Direcionamento de Stories</li>
         <li>Organizacao e otimizacao do perfil</li>
       </ul>
-      <a href="https://wa.me/5568992134736" class="pcta" target="_blank">Quero este plano</a>
+      <a href="https://wa.me/5568992547857" class="pcta" target="_blank">Quero este plano</a>
     </div>
     <div class="pacote dest">
       <div class="plbl">&#9733; Mais popular</div>
@@ -260,7 +276,7 @@ footer{background:var(--g1);padding:40px 60px;display:flex;align-items:center;ju
         <li>Pesquisa de hashtags estrategicas</li>
         <li>Otimizacao completa do perfil</li>
       </ul>
-      <a href="https://wa.me/5568992134736" class="pcta" target="_blank">Quero este plano</a>
+      <a href="https://wa.me/5568992547857" class="pcta" target="_blank">Quero este plano</a>
     </div>
     <div class="pacote">
       <div class="plbl">Premium</div>
@@ -274,7 +290,7 @@ footer{background:var(--g1);padding:40px 60px;display:flex;align-items:center;ju
         <li>Estrategia de posicionamento da marca</li>
         <li>Analise de desempenho e melhorias mensais</li>
       </ul>
-      <a href="https://wa.me/5568992134736" class="pcta" target="_blank">Quero este plano</a>
+      <a href="https://wa.me/5568992547857" class="pcta" target="_blank">Quero este plano</a>
     </div>
   </div>
 </section>
@@ -283,31 +299,31 @@ footer{background:var(--g1);padding:40px 60px;display:flex;align-items:center;ju
   <h2 class="stitle">Vamos <em>Conversar?</em></h2>
   <div class="cgrid">
     <div class="cinfo fade-up">
-      <a href="https://wa.me/5568992134736" target="_blank" class="citem">
+      <a href="https://wa.me/5568992547857" target="_blank" class="citem">
         <span class="cico">&#128172;</span>
-        <div><span class="clbl">WhatsApp</span><span class="cval">(68) 99213-4736</span></div>
+        <div><span class="clbl">WhatsApp</span><span class="cval">(68) 99254-7857</span></div>
       </a>
-      <a href="https://instagram.com/barbara_llu" target="_blank" class="citem">
+      <a href="https://instagram.com/seuinstagram" target="_blank" class="citem">
         <span class="cico">&#128247;</span>
-        <div><span class="clbl">Instagram</span><span class="cval">@barbara_llu</span></div>
+        <div><span class="clbl">Instagram</span><span class="cval">@seuinstagram</span></div>
       </a>
-      <a href="mailto:barbarasantos4270@gmail.com" class="citem">
+      <a href="mailto:seuemail@gmail.com" class="citem">
         <span class="cico">&#9993;</span>
-        <div><span class="clbl">E-mail</span><span class="cval">barbarasantos4270@gmail.com</span></div>
+        <div><span class="clbl">E-mail</span><span class="cval">seuemail@gmail.com</span></div>
       </a>
-      <a href="https://wa.me/5568992134736" target="_blank" class="btn-p" style="align-self:flex-start;margin-top:8px;">Iniciar Conversa</a>
+      <a href="https://wa.me/5568992547857" target="_blank" class="btn-p" style="align-self:flex-start;margin-top:8px;">Iniciar Conversa</a>
     </div>
-    <div class="cphoto fade-up" style="transition-delay:.2s"><img src="1.png" alt="Barbara Luisa">
+    <div class="cphoto fade-up" style="transition-delay:.2s"><img src="1.png" alt="Seu Nome">
     </div>
   </div>
 </section>
 <footer>
-  <a href="#hero" class="flogo">B<span>.</span>Luisa</a>
-  <p class="fcopy">2025 Barbara Luisa M. Santos - Social Media &amp; Criadora de Conteudo</p>
+  <a href="#hero" class="flogo">S<span>.</span>Nome</a>
+  <p class="fcopy">2025 Seu Nome - Social Media &amp; Criadora de Conteudo</p>
 </footer>
 <script>
-const SB_URL='https://ugqzsmtbcgsbpyijbsza.supabase.co';
-const SB_KEY='sb_publishable_O4hZs37uc9INxp9GEV6-gw_t5nWfzoX';
+const SB_URL='SUA_SUPABASE_URL';
+const SB_KEY='SUA_SUPABASE_ANON_KEY';
 const BUCKET='videos';
 
 const cur=document.getElementById('cur'),cring=document.getElementById('cring');
@@ -328,7 +344,8 @@ function toast(msg,type=''){
 }
 
 async function sbReq(path,opts={}){
-  const headers={'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY};
+  const token=sessionStorage.getItem('sb_token')||SB_KEY;
+  const headers={'apikey':SB_KEY,'Authorization':'Bearer '+token};
   if(opts.headers) Object.assign(headers, opts.headers);
   return fetch(SB_URL+path,{...opts,headers});
 }
@@ -360,8 +377,11 @@ function render(files){
     const date=new Date(f.created_at||Date.now()).toLocaleDateString('pt-BR');
     const c=document.createElement('div');
     c.className='vcard';c.dataset.name=f.name;
-    const cleanName=f.name.replace(/^\d+-/,'');
-    c.innerHTML='<div class="vthumb"><video src="'+url+'" preload="metadata"></video><div class="voverlay"><div class="playbtn">&#9654;</div></div></div><div class="vinfo"><div class="vname">'+cleanName+'</div><div class="vdate">'+date+'</div></div><button class="vdel" onclick="delVideo(\''+f.name+'\',this)">&#10005;</button>';
+    // extrai legenda e nome limpo
+    let cleanName=f.name.replace(/^\d+-/,'');
+    let caption=localStorage.getItem('cap_'+f.name)||'';
+    const capHtml=caption?'<div class="vcaption">'+caption+'</div>':'';
+    c.innerHTML='<div class="vthumb"><video src="'+url+'" preload="metadata"></video><div class="voverlay"><div class="playbtn">&#9654;</div></div></div><div class="vinfo"><div class="vname">'+cleanName+'</div><div class="vdate">'+date+'</div>'+capHtml+'</div><button class="vdel" onclick="delVideo(\''+f.name+'\',this)">&#10005;</button>';
     c.querySelector('.voverlay').addEventListener('click',()=>{
       const v=c.querySelector('video');
       if(v.paused){v.play();c.querySelector('.voverlay').style.opacity='0';}
@@ -386,7 +406,64 @@ async function delVideo(name,btn){
 }
 
 const uzone=document.getElementById('uzone');
-if(new URLSearchParams(location.search).get('admin')==='1'){uzone.style.display='block';}
+
+// Admin com Supabase Auth
+if(new URLSearchParams(location.search).get('admin')==='1'){
+  // Verifica se já tem sessão ativa
+  sbReq('/auth/v1/user',{method:'GET'}).then(async r=>{
+    if(r.ok){
+      uzone.style.display='block';
+      document.getElementById('admin-tools').style.display='block';
+      document.getElementById('admin-logout').style.display='inline-flex';
+      document.body.classList.add('is-admin');
+    } else {
+      showLoginModal();
+    }
+  });
+}
+
+function showLoginModal(){
+  const modal=document.createElement('div');
+  modal.id='login-modal';
+  modal.innerHTML=`
+    <div style="position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:10000;display:flex;align-items:center;justify-content:center;">
+      <div style="background:#1a1a1a;border:1px solid rgba(204,26,26,.3);padding:48px 40px;width:100%;max-width:380px;position:relative;">
+        <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#f5f0eb;margin-bottom:6px;">Área <em style='color:#cc1a1a'>Admin</em></div>
+        <p style="font-size:13px;color:#888;margin-bottom:28px;">Faça login para continuar.</p>
+        <input id="l-email" type="email" placeholder="E-mail" style="width:100%;background:#0a0a0a;border:1px solid rgba(255,255,255,.1);color:#f5f0eb;padding:12px 14px;font-size:13px;font-family:'Syne',sans-serif;margin-bottom:12px;outline:none;box-sizing:border-box;">
+        <input id="l-pass" type="password" placeholder="Senha" style="width:100%;background:#0a0a0a;border:1px solid rgba(255,255,255,.1);color:#f5f0eb;padding:12px 14px;font-size:13px;font-family:'Syne',sans-serif;margin-bottom:20px;outline:none;box-sizing:border-box;">
+        <div id="l-err" style="font-size:12px;color:#cc1a1a;margin-bottom:12px;display:none;"></div>
+        <button id="l-btn" style="width:100%;background:#cc1a1a;color:white;border:none;padding:14px;font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;">Entrar</button>
+      </div>
+    </div>`;
+  document.body.appendChild(modal);
+
+  document.getElementById('l-btn').addEventListener('click', async ()=>{
+    const email=document.getElementById('l-email').value.trim();
+    const pass=document.getElementById('l-pass').value;
+    const err=document.getElementById('l-err');
+    const btn=document.getElementById('l-btn');
+    btn.textContent='Entrando...';
+    const r=await fetch(SB_URL+'/auth/v1/token?grant_type=password',{
+      method:'POST',
+      headers:{'apikey':SB_KEY,'Content-Type':'application/json'},
+      body:JSON.stringify({email,password:pass})
+    });
+    const data=await r.json();
+    if(r.ok && data.access_token){
+      sessionStorage.setItem('sb_token', data.access_token);
+      modal.remove();
+      uzone.style.display='block';
+      document.getElementById('admin-tools').style.display='block';
+      document.getElementById('admin-logout').style.display='inline-flex';
+      document.body.classList.add('is-admin');
+    } else {
+      err.textContent='E-mail ou senha incorretos.';
+      err.style.display='block';
+      btn.textContent='Entrar';
+    }
+  });
+}
 const vinput=document.getElementById('vinput');
 uzone.addEventListener('click',()=>vinput.click());
 uzone.addEventListener('dragover',e=>{e.preventDefault();uzone.classList.add('dragover');});
@@ -396,13 +473,14 @@ vinput.addEventListener('change',()=>doUpload(vinput.files));
 
 async function doUpload(files){
   if(!files||!files.length)return;
+  const caption=document.getElementById('vcaption').value.trim();
   for(const file of files){
     if(!file.type.startsWith('video/')){toast('Apenas vídeos são permitidos!');continue;}
     if(file.size>52428800){toast(file.name+' é muito grande (máx 50MB)');continue;}
     const pg=document.getElementById('uprog'),bar=document.getElementById('ubar'),sta=document.getElementById('usta');
     pg.style.display='block';sta.style.display='block';
     sta.textContent='Enviando '+file.name+'...';bar.style.width='0%';
-    const fname=Date.now()+'-'+file.name.replace(/\s/g,'_');
+    const fname=Date.now()+'-'+file.name.replace(/[^a-zA-Z0-9._-]/g,'_');
     try{
       let p=0;
       const iv=setInterval(()=>{p=Math.min(p+Math.random()*15,90);bar.style.width=p+'%';},200);
@@ -413,8 +491,11 @@ async function doUpload(files){
       });
       clearInterval(iv);bar.style.width='100%';
       if(!r.ok){const er=await r.json().catch(()=>({}));throw new Error(er.message||'upload error');}
-      sta.textContent='&#10003; '+file.name+' enviado!';
+      // salva legenda no localStorage
+      if(caption) localStorage.setItem('cap_'+fname, caption);
+      sta.textContent='✓ '+file.name+' enviado!';
       toast('Vídeo enviado com sucesso!','ok');
+      document.getElementById('vcaption').value='';
       setTimeout(()=>{pg.style.display='none';sta.style.display='none';bar.style.width='0%';loadVideos();},1200);
     }catch(e){
       document.getElementById('uprog').style.display='none';
