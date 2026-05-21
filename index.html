@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barbara Luisa - Social Media &amp; Criadora de Conteudo</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0a0a0a;--red:#cc1a1a;--red2:#e02020;--white:#f5f0eb;--g1:#1a1a1a;--g2:#2a2a2a;--gt:#888;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--white);font-family:'Syne',sans-serif;overflow-x:hidden;cursor:none;}
+.cursor{width:12px;height:12px;background:var(--red);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s ease,width .2s,height .2s;}
+.cring{width:36px;height:36px;border:1px solid rgba(204,26,26,.4);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .15s ease;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:24px 60px;background:linear-gradient(to bottom,rgba(10,10,10,.95) 0%,transparent 100%);transition:backdrop-filter .3s,background .3s;}
+nav.scrolled{background:rgba(10,10,10,.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(204,26,26,.15);}
+.nav-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--white);text-decoration:none;letter-spacing:.02em;}
+.nav-logo span{color:var(--red);}
+.nav-links{display:flex;gap:40px;list-style:none;}
+.nav-links a{color:var(--gt);text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;transition:color .2s;position:relative;}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--red);transition:width .3s ease;}
+.nav-links a:hover{color:var(--white);}
+.nav-links a:hover::after{width:100%;}
+#hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:0 60px;position:relative;overflow:hidden;}
+.hbg{position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(204,26,26,.08) 0%,transparent 60%);pointer-events:none;}
+.hlines{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 79px,rgba(255,255,255,.02) 79px,rgba(255,255,255,.02) 80px);pointer-events:none;}
+.hcontent{position:relative;z-index:2;padding-right:40px;}
+.htag{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:28px;}
+.htag::before{content:'';width:30px;height:1px;background:var(--red);}
+.hname{font-family:'Playfair Display',serif;font-size:clamp(52px,6vw,82px);font-weight:900;line-height:1.0;color:var(--white);margin-bottom:20px;}
+.hname em{font-style:italic;color:var(--red);}
+.hdesc{font-size:15px;line-height:1.8;color:var(--gt);max-width:440px;margin-bottom:40px;font-weight:400;}
+.hcta{display:flex;gap:16px;align-items:center;flex-wrap:wrap;}
+.btn-p{background:var(--red);color:white;padding:14px 32px;font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border:none;text-decoration:none;display:inline-block;transition:background .2s,transform .2s;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));cursor:none;}
+.btn-p:hover{background:var(--red2);transform:translateY(-2px);}
+.btn-s{color:var(--white);text-decoration:none;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:2px;transition:border-color .2s,color .2s;cursor:none;}
+.btn-s:hover{border-color:var(--red);color:var(--red);}
+.himg{position:relative;z-index:2;display:flex;justify-content:center;align-items:flex-end;}
+.hphoto-wrap{position:relative;width:400px;max-width:100%;}
+.hphoto-wrap::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--red) 0%,transparent 60%);opacity:.18;z-index:1;pointer-events:none;}
+.hphoto-wrap::after{content:'';position:absolute;bottom:-24px;right:-24px;width:180px;height:180px;border:2px solid var(--red);opacity:.4;z-index:-1;}
+.hphoto-frame{position:absolute;top:-16px;left:-16px;width:60%;height:60%;border-top:2px solid var(--red);border-left:2px solid var(--red);opacity:.5;z-index:3;pointer-events:none;}
+.hphoto{width:100%;object-fit:contain;display:block;position:relative;z-index:2;filter:drop-shadow(0 20px 60px rgba(204,26,26,.25));}
+.hstats{position:absolute;bottom:40px;left:60px;display:flex;gap:50px;z-index:2;}
+.stat{display:flex;flex-direction:column;gap:4px;}
+.snum{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--white);}
+.slabel{font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--gt);}
+section{padding:100px 60px;}
+.slbl{font-size:11px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+.slbl::before{content:'';width:24px;height:1px;background:var(--red);}
+.stitle{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,58px);font-weight:900;line-height:1.1;color:var(--white);margin-bottom:24px;}
+.stitle em{font-style:italic;color:var(--red);}
+#sobre{background:var(--g1);position:relative;overflow:hidden;}
+#sobre::before{content:'BARBARA';position:absolute;top:-20px;right:-20px;font-family:'Playfair Display',serif;font-size:200px;font-weight:900;color:rgba(255,255,255,.02);pointer-events:none;white-space:nowrap;}
+.sgrid{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:center;position:relative;z-index:1;}
+.sphotos{display:grid;grid-template-columns:1fr;grid-template-rows:460px;gap:0;}
+.sphoto{overflow:hidden;position:relative;background:transparent;}
+.sphoto:first-child{grid-row:span 1;}
+.sphoto img{width:100%;height:100%;object-fit:contain;object-position:top center;transition:transform .6s ease;display:block;filter:drop-shadow(0 8px 24px rgba(0,0,0,.5));}
+.sphoto:hover img{transform:scale(1.05);}
+.sphoto::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,.6) 0%,transparent 50%);pointer-events:none;opacity:0;transition:opacity .3s;}
+.sphoto:hover::after{opacity:1;}
+.slabel2{position:absolute;bottom:0;left:0;right:0;padding:16px 14px 10px;font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.7);z-index:2;}
+.sphoto-accent{position:absolute;top:12px;right:12px;width:28px;height:28px;border-top:2px solid var(--red);border-right:2px solid var(--red);opacity:.7;pointer-events:none;z-index:3;}
+.stext p{font-size:15px;line-height:1.9;color:#aaa;margin-bottom:24px;}
+.stext p strong{color:var(--white);font-weight:700;}
+.skgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:32px;}
+.sktag{background:rgba(204,26,26,.08);border:1px solid rgba(204,26,26,.2);padding:10px 16px;font-size:12px;font-weight:600;letter-spacing:.05em;color:var(--white);display:flex;align-items:center;gap:8px;}
+.sktag::before{content:'\25b8';color:var(--red);font-size:10px;}
+#trabalhos{background:var(--black);}
+.theader{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:60px;flex-wrap:wrap;gap:24px;}
+.uzone{border:1px dashed rgba(204,26,26,.4);padding:32px 40px;text-align:center;background:rgba(204,26,26,.03);transition:all .3s;cursor:pointer;position:relative;margin-bottom:60px;display:none;}
+.uzone:hover,.uzone.dragover{border-color:var(--red);background:rgba(204,26,26,.07);}
+.uzone input{display:none;}
+.uicon{font-size:32px;margin-bottom:12px;display:block;color:var(--red);}
+.uzone h3{font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--white);margin-bottom:8px;}
+.uzone p{font-size:13px;color:var(--gt);}
+.uprog{display:none;margin-top:16px;background:rgba(255,255,255,.05);height:3px;border-radius:2px;}
+.ubar{height:100%;background:var(--red);width:0%;transition:width .3s;border-radius:2px;}
+.usta{margin-top:10px;font-size:13px;color:var(--gt);display:none;}
+.vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;}
+.vcard{background:var(--g2);border:1px solid rgba(255,255,255,.05);overflow:hidden;position:relative;transition:transform .3s,border-color .3s;}
+.vcard:hover{transform:translateY(-4px);border-color:rgba(204,26,26,.3);}
+.vthumb{position:relative;padding-bottom:56.25%;background:#111;}
+.vthumb video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.voverlay{position:absolute;inset:0;background:rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;opacity:1;transition:opacity .2s;cursor:pointer;}
+.vcard:hover .voverlay{opacity:0;}
+.playbtn{width:50px;height:50px;background:rgba(204,26,26,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;color:white;}
+.vinfo{padding:16px;}
+.vname{font-size:13px;font-weight:700;color:var(--white);margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.vdate{font-size:11px;color:var(--gt);}
+.vdel{position:absolute;top:10px;right:10px;background:rgba(204,26,26,.8);border:none;color:white;width:28px;height:28px;border-radius:50%;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;}
+.vcard:hover .vdel{opacity:1;}
+.empty{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--gt);}
+.eico{font-size:48px;margin-bottom:16px;opacity:.4;}
+#servicos{display:none;}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:60px;}
+.pacote{background:var(--black);padding:48px 36px;position:relative;transition:transform .3s;}
+.pacote:hover{transform:translateY(-6px);}
+.pacote.dest{background:var(--red);z-index:2;transform:translateY(-12px);}
+.pacote.dest:hover{transform:translateY(-18px);}
+.plbl{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gt);margin-bottom:12px;}
+.pacote.dest .plbl{color:rgba(255,255,255,.6);}
+.pname{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--white);margin-bottom:8px;}
+.pprice{font-size:40px;font-weight:800;color:var(--white);font-family:'Syne',sans-serif;margin-bottom:4px;}
+.pprice span{font-size:18px;font-weight:400;}
+.pdiv{width:40px;height:1px;background:rgba(255,255,255,.15);margin:24px 0;}
+.pacote.dest .pdiv{background:rgba(255,255,255,.3);}
+.pitems{list-style:none;display:flex;flex-direction:column;gap:12px;}
+.pitems li{font-size:13px;color:#aaa;display:flex;gap:10px;align-items:flex-start;line-height:1.5;}
+.pacote.dest .pitems li{color:rgba(255,255,255,.85);}
+.pitems li::before{content:'\2736';color:var(--red);font-size:8px;margin-top:4px;flex-shrink:0;}
+.pacote.dest .pitems li::before{color:rgba(255,255,255,.6);}
+.pcta{display:block;margin-top:36px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:var(--white);text-decoration:none;padding:14px;text-align:center;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transition:all .2s;}
+.pcta:hover{background:rgba(255,255,255,.12);}
+.pacote.dest .pcta{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.3);}
+.pacote.dest .pcta:hover{background:rgba(255,255,255,.25);}
+#contato{background:var(--black);}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:60px;}
+.cinfo{display:flex;flex-direction:column;gap:28px;}
+.citem{display:flex;align-items:center;gap:20px;padding:20px 24px;background:var(--g1);border-left:2px solid var(--red);text-decoration:none;transition:background .2s;}
+.citem:hover{background:var(--g2);}
+.cico{font-size:20px;width:40px;text-align:center;}
+.clbl{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gt);display:block;margin-bottom:4px;}
+.cval{font-size:15px;font-weight:600;color:var(--white);}
+.cphoto{position:relative;background:transparent;}
+.cphoto img{width:100%;display:block;object-fit:contain;object-position:top;max-height:520px;filter:drop-shadow(0 24px 60px rgba(204,26,26,.2));}
+.cphoto::before{content:'';position:absolute;top:-20px;left:-20px;right:20px;bottom:20px;border:1px solid rgba(204,26,26,.3);z-index:-1;}
+.cphoto::after{content:'';position:absolute;bottom:-12px;right:-12px;width:80px;height:80px;background:var(--red);opacity:.08;z-index:-1;}
+footer{background:var(--g1);padding:40px 60px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.05);}
+.flogo{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--white);text-decoration:none;}
+.flogo span{color:var(--red);}
+.fcopy{font-size:12px;color:var(--gt);}
+.fade-up{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease;}
+.fade-up.visible{opacity:1;transform:translateY(0);}
+.toast{position:fixed;bottom:30px;right:30px;background:var(--g2);color:var(--white);padding:14px 22px;font-size:13px;font-weight:600;border-left:3px solid var(--red);z-index:9999;opacity:0;transform:translateX(20px);transition:all .3s;pointer-events:none;}
+.toast.show{opacity:1;transform:translateX(0);}
+.toast.ok{border-color:#22c55e;}
+@media(max-width:900px){
+  nav{padding:20px 28px;}
+  .nav-links{display:none;}
+  section{padding:70px 28px;}
+  #hero{grid-template-columns:1fr;padding:120px 28px 60px;gap:40px;}
+  .himg{display:none;}
+  .sgrid,.cgrid{grid-template-columns:1fr;gap:40px;}
+  .pgrid{grid-template-columns:1fr;}
+  .pacote.dest{transform:none;}
+  footer{flex-direction:column;gap:12px;text-align:center;padding:28px;}
+  .hstats{position:static;margin-top:40px;}
+}
+</style>
+</head>
+<body>
+<div class="cursor" id="cur"></div>
+<div class="cring" id="cring"></div>
+<div class="toast" id="toast"></div>
+<nav id="nav">
+  <a href="#hero" class="nav-logo">B<span>.</span>Luisa</a>
+  <ul class="nav-links">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#trabalhos">Trabalhos</a></li>
+    <li><a href="#servicos">Servicos</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+</nav>
+<section id="hero">
+  <div class="hbg"></div><div class="hlines"></div>
+  <div class="hcontent fade-up">
+    <div class="htag">Social Media &amp; Criadora de Conteudo</div>
+    <h1 class="hname">Barbara<br><em>Luisa</em></h1>
+    <p class="hdesc">Transformo marcas em presenca digital real com estrategia, estetica e conteudo que conecta, inspira e converte em resultados.</p>
+    <div class="hcta">
+      <a href="#trabalhos" class="btn-p">Ver Trabalhos</a>
+      <a href="#contato" class="btn-s">Entre em contato</a>
+    </div>
+  </div>
+  <div class="himg fade-up" style="transition-delay:.2s">
+    <div class="hphoto-wrap">
+      <div class="hphoto-frame"></div>
+      <img src="1.png" alt="Barbara Luisa" class="hphoto">
+    </div>
+  </div>
+  <div class="hstats fade-up" style="transition-delay:.4s">
+    <div class="stat"><span class="snum">3+</span><span class="slabel">Anos de experiencia</span></div>
+    <div class="stat"><span class="snum">&#8734;</span><span class="slabel">Conteudos criados</span></div>
+    <div class="stat"><span class="snum">100%</span><span class="slabel">Dedicacao</span></div>
+  </div>
+</section>
+<section id="sobre">
+  <div class="sgrid">
+    <div class="sphotos fade-up">
+      <div class="sphoto" style="background:#111;display:flex;align-items:center;justify-content:center;grid-column:1/-1;grid-row:1/-1;">
+        <div style="text-align:center;padding:40px;">
+          <div style="font-family:'Playfair Display',serif;font-size:72px;color:var(--red);font-weight:900;font-style:italic;line-height:1;">BL</div>
+          <div style="font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gt);margin-top:10px;">Portfolio 2026</div>
+        </div>
+      </div>
+    </div>
+    <div class="stext fade-up" style="transition-delay:.15s">
+      <div class="slbl">Sobre mim</div>
+      <h2 class="stitle">Barbara <em>Luisa</em><br>M. Santos</h2>
+      <p>Ola! Sou <strong>Social Media e Criadora de Conteudo</strong> com formacao tecnica em Informatica para Internet pelo IFAC e graduanda em Direito pela UniNorte. Essa combinacao unica me da uma visao estrategica diferenciada no universo digital.</p>
+      <p>Busco constantemente evoluir no ambito academico e pessoal, valorizando <strong>disciplina, estrategia e excelencia</strong> em tudo que me proponho a fazer. Meu proposito e construir uma trajetoria solida, unindo conhecimento, lideranca e impacto positivo na sociedade.</p>
+      <div class="skgrid">
+        <div class="sktag">Edicao Audiovisual</div>
+        <div class="sktag">Design Grafico</div>
+        <div class="sktag">Social Media</div>
+        <div class="sktag">Filmagem Mobile</div>
+        <div class="sktag">Canva Pro</div>
+        <div class="sktag">Meta Ads</div>
+        <div class="sktag">CapCut Avancado</div>
+        <div class="sktag">Storymaker</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="trabalhos">
+  <div class="theader">
+    <div><div class="slbl">Portfolio</div><h2 class="stitle">Meus <em>Trabalhos</em></h2></div>
+  </div>
+  <div class="uzone fade-up" id="uzone">
+    <input type="file" id="vinput" accept="video/*" multiple>
+    <span class="uicon">&#9650;</span>
+    <h3>Enviar Videos</h3>
+    <p>Clique para selecionar ou arraste seus videos aqui<br><small style="opacity:.5">MP4, MOV, AVI - ate 50MB por arquivo</small></p>
+    <div class="uprog" id="uprog"><div class="ubar" id="ubar"></div></div>
+    <div class="usta" id="usta"></div>
+  </div>
+  <div class="vgrid" id="vgrid">
+    <div class="empty" id="empty"><div class="eico">&#127916;</div><p>Nenhum video ainda.<br>Faca upload acima para comecar!</p></div>
+  </div>
+</section>
+<section id="servicos">
+  <div class="slbl">Servicos</div>
+  <h2 class="stitle">Pacotes <em>Masters</em></h2>
+  <div class="pgrid fade-up">
+    <div class="pacote">
+      <div class="plbl">Basico</div>
+      <div class="pname">Pacote Starter</div>
+      <div class="pprice"><span>R$</span> 900</div>
+      <div class="pdiv"></div>
+      <ul class="pitems">
+        <li>6 Reels por mes</li>
+        <li>Planejamento estrategico de conteudo</li>
+        <li>Pesquisa de hashtags estrategicas</li>
+        <li>Direcionamento de Stories</li>
+        <li>Organizacao e otimizacao do perfil</li>
+      </ul>
+      <a href="https://wa.me/5568992134736" class="pcta" target="_blank">Quero este plano</a>
+    </div>
+    <div class="pacote dest">
+      <div class="plbl">&#9733; Mais popular</div>
+      <div class="pname">Pacote Medio</div>
+      <div class="pprice"><span>R$</span> 1500</div>
+      <div class="pdiv"></div>
+      <ul class="pitems">
+        <li>Planejamento estrategico de conteudo</li>
+        <li>Estrategia de crescimento do perfil</li>
+        <li>Planejamento de Stories</li>
+        <li>Pesquisa de hashtags estrategicas</li>
+        <li>Otimizacao completa do perfil</li>
+      </ul>
+      <a href="https://wa.me/5568992134736" class="pcta" target="_blank">Quero este plano</a>
+    </div>
+    <div class="pacote">
+      <div class="plbl">Premium</div>
+      <div class="pname">Pacote Plus</div>
+      <div class="pprice"><span>R$</span> 2500</div>
+      <div class="pdiv"></div>
+      <ul class="pitems">
+        <li>Planejamento estrategico completo</li>
+        <li>Planejamento e estrategia de Stories</li>
+        <li>Criacao de identidade visual para Instagram</li>
+        <li>Estrategia de posicionamento da marca</li>
+        <li>Analise de desempenho e melhorias mensais</li>
+      </ul>
+      <a href="https://wa.me/5568992134736" class="pcta" target="_blank">Quero este plano</a>
+    </div>
+  </div>
+</section>
+<section id="contato">
+  <div class="slbl">Contato</div>
+  <h2 class="stitle">Vamos <em>Conversar?</em></h2>
+  <div class="cgrid">
+    <div class="cinfo fade-up">
+      <a href="https://wa.me/5568992134736" target="_blank" class="citem">
+        <span class="cico">&#128172;</span>
+        <div><span class="clbl">WhatsApp</span><span class="cval">(68) 99213-4736</span></div>
+      </a>
+      <a href="https://instagram.com/barbara_llu" target="_blank" class="citem">
+        <span class="cico">&#128247;</span>
+        <div><span class="clbl">Instagram</span><span class="cval">@barbara_llu</span></div>
+      </a>
+      <a href="mailto:barbarasantos4270@gmail.com" class="citem">
+        <span class="cico">&#9993;</span>
+        <div><span class="clbl">E-mail</span><span class="cval">barbarasantos4270@gmail.com</span></div>
+      </a>
+      <a href="https://wa.me/5568992134736" target="_blank" class="btn-p" style="align-self:flex-start;margin-top:8px;">Iniciar Conversa</a>
+    </div>
+    <div class="cphoto fade-up" style="transition-delay:.2s"><img src="1.png" alt="Barbara Luisa">
+    </div>
+  </div>
+</section>
+<footer>
+  <a href="#hero" class="flogo">B<span>.</span>Luisa</a>
+  <p class="fcopy">2025 Barbara Luisa M. Santos - Social Media &amp; Criadora de Conteudo</p>
+</footer>
+<script>
+const SB_URL='https://ugqzsmtbcgsbpyijbsza.supabase.co';
+const SB_KEY='sb_publishable_O4hZs37uc9INxp9GEV6-gw_t5nWfzoX';
+const BUCKET='videos';
+
+const cur=document.getElementById('cur'),cring=document.getElementById('cring');
+document.addEventListener('mousemove',e=>{
+  cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';
+  setTimeout(()=>{cring.style.left=e.clientX+'px';cring.style.top=e.clientY+'px';},80);
+});
+
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50));
+
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:0.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+function toast(msg,type=''){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.className='toast show '+type;
+  setTimeout(()=>t.className='toast',3000);
+}
+
+async function sbReq(path,opts={}){
+  const headers={'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY};
+  if(opts.headers) Object.assign(headers, opts.headers);
+  return fetch(SB_URL+path,{...opts,headers});
+}
+
+async function loadVideos(){
+  try{
+    const r=await sbReq('/storage/v1/object/list/'+BUCKET,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({prefix:'',limit:100,offset:0})
+    });
+    if(!r.ok) throw new Error('load fail');
+    const files=await r.json();
+    render(files.filter(f=>f.name&&f.name!=='.emptyFolderPlaceholder'));
+  }catch(e){render([]);}
+}
+
+function vUrl(name){return SB_URL+'/storage/v1/object/public/'+BUCKET+'/'+encodeURIComponent(name);}
+
+function render(files){
+  const grid=document.getElementById('vgrid');
+  const emp=document.getElementById('empty');
+  if(!files||!files.length){grid.innerHTML='';grid.appendChild(emp);emp.style.display='block';return;}
+  emp.style.display='none';
+  const ex=[...grid.querySelectorAll('.vcard')].map(c=>c.dataset.name);
+  files.forEach(f=>{
+    if(ex.includes(f.name))return;
+    const url=vUrl(f.name);
+    const date=new Date(f.created_at||Date.now()).toLocaleDateString('pt-BR');
+    const c=document.createElement('div');
+    c.className='vcard';c.dataset.name=f.name;
+    const cleanName=f.name.replace(/^\d+-/,'');
+    c.innerHTML='<div class="vthumb"><video src="'+url+'" preload="metadata"></video><div class="voverlay"><div class="playbtn">&#9654;</div></div></div><div class="vinfo"><div class="vname">'+cleanName+'</div><div class="vdate">'+date+'</div></div><button class="vdel" onclick="delVideo(\''+f.name+'\',this)">&#10005;</button>';
+    c.querySelector('.voverlay').addEventListener('click',()=>{
+      const v=c.querySelector('video');
+      if(v.paused){v.play();c.querySelector('.voverlay').style.opacity='0';}
+      else{v.pause();c.querySelector('.voverlay').style.opacity='1';}
+    });
+    grid.prepend(c);
+  });
+}
+
+async function delVideo(name,btn){
+  if(!confirm('Remover este vídeo?'))return;
+  try{
+    const r=await sbReq('/storage/v1/object/'+BUCKET+'/'+encodeURIComponent(name),{method:'DELETE'});
+    if(!r.ok) throw new Error('delete fail');
+    btn.closest('.vcard').remove();
+    toast('Vídeo removido!','ok');
+    if(!document.querySelector('.vcard')){
+      document.getElementById('vgrid').appendChild(document.getElementById('empty'));
+      document.getElementById('empty').style.display='block';
+    }
+  }catch(e){toast('Erro: '+e.message);}
+}
+
+const uzone=document.getElementById('uzone');
+if(new URLSearchParams(location.search).get('admin')==='1'){uzone.style.display='block';}
+const vinput=document.getElementById('vinput');
+uzone.addEventListener('click',()=>vinput.click());
+uzone.addEventListener('dragover',e=>{e.preventDefault();uzone.classList.add('dragover');});
+uzone.addEventListener('dragleave',()=>uzone.classList.remove('dragover'));
+uzone.addEventListener('drop',e=>{e.preventDefault();uzone.classList.remove('dragover');doUpload(e.dataTransfer.files);});
+vinput.addEventListener('change',()=>doUpload(vinput.files));
+
+async function doUpload(files){
+  if(!files||!files.length)return;
+  for(const file of files){
+    if(!file.type.startsWith('video/')){toast('Apenas vídeos são permitidos!');continue;}
+    if(file.size>52428800){toast(file.name+' é muito grande (máx 50MB)');continue;}
+    const pg=document.getElementById('uprog'),bar=document.getElementById('ubar'),sta=document.getElementById('usta');
+    pg.style.display='block';sta.style.display='block';
+    sta.textContent='Enviando '+file.name+'...';bar.style.width='0%';
+    const fname=Date.now()+'-'+file.name.replace(/\s/g,'_');
+    try{
+      let p=0;
+      const iv=setInterval(()=>{p=Math.min(p+Math.random()*15,90);bar.style.width=p+'%';},200);
+      const r=await sbReq('/storage/v1/object/'+BUCKET+'/'+encodeURIComponent(fname),{
+        method:'POST',
+        headers:{'Content-Type':file.type,'x-upsert':'false'},
+        body:file
+      });
+      clearInterval(iv);bar.style.width='100%';
+      if(!r.ok){const er=await r.json().catch(()=>({}));throw new Error(er.message||'upload error');}
+      sta.textContent='&#10003; '+file.name+' enviado!';
+      toast('Vídeo enviado com sucesso!','ok');
+      setTimeout(()=>{pg.style.display='none';sta.style.display='none';bar.style.width='0%';loadVideos();},1200);
+    }catch(e){
+      document.getElementById('uprog').style.display='none';
+      document.getElementById('usta').style.display='none';
+      toast('Erro: '+e.message);
+    }
+  }
+  vinput.value='';
+}
+
+loadVideos();
+</script>
+</body>
+</html>
