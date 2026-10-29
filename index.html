@@ -163,6 +163,18 @@ body.is-admin .admin-fab{display:flex;}
 .ep-save:hover{background:var(--red2);}
 .ep-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:10001;display:none;}
 .ep-overlay.open{display:block;}
+/* Upload foto */
+.photo-upload-area{border:2px dashed rgba(204,26,26,.4);padding:0;position:relative;cursor:pointer;transition:border-color .2s;overflow:hidden;background:#0a0a0a;}
+.photo-upload-area:hover{border-color:var(--red);}
+.photo-upload-area img{width:100%;height:220px;object-fit:cover;object-position:top;display:block;}
+.photo-upload-placeholder{height:140px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;}
+.photo-upload-placeholder span{font-size:32px;opacity:.4;}
+.photo-upload-placeholder p{font-size:12px;color:#666;text-align:center;line-height:1.5;}
+.photo-upload-progress{position:absolute;inset:0;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;flex-direction:column;gap:10px;}
+.photo-upload-progress p{font-size:12px;color:white;font-weight:600;}
+.photo-upload-progress-bar{width:80%;height:3px;background:rgba(255,255,255,.2);border-radius:2px;}
+.photo-upload-progress-fill{height:100%;background:var(--red);border-radius:2px;width:0%;transition:width .3s;}
+.photo-upload-area input{display:none;}
 .wabtn{position:fixed;bottom:90px;right:28px;width:56px;height:56px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:9997;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:transform .2s,box-shadow .2s;cursor:none;}
 .wabtn:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,.6);}
 @media(max-width:900px){
@@ -190,6 +202,23 @@ body.is-admin .admin-fab{display:flex;}
   <div class="ep-head">
     <h3>Editar <em>Textos</em></h3>
     <button class="ep-close" onclick="closeEditPanel()">✕</button>
+  </div>
+  <!-- Seção de foto -->
+  <div style="padding:20px 24px;border-bottom:1px solid rgba(255,255,255,.07);">
+    <div style="font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:10px;">Sua Foto</div>
+    <div class="photo-upload-area" id="photo-upload-area" onclick="document.getElementById('photo-input').click()">
+      <img id="photo-preview" src="" alt="" style="display:none;">
+      <div class="photo-upload-placeholder" id="photo-placeholder">
+        <span>📷</span>
+        <p>Clique para enviar sua foto<br><small style="opacity:.6">JPG, PNG — recomendado vertical</small></p>
+      </div>
+      <div class="photo-upload-progress" id="photo-progress">
+        <p id="photo-progress-text">Enviando...</p>
+        <div class="photo-upload-progress-bar"><div class="photo-upload-progress-fill" id="photo-progress-fill"></div></div>
+      </div>
+      <input type="file" id="photo-input" accept="image/jpeg,image/png,image/webp">
+    </div>
+    <small style="display:block;font-size:10px;color:#555;margin-top:6px;">A foto aparece no hero e na seção de contato.</small>
   </div>
   <div class="ep-body" id="ep-body"></div>
   <div class="ep-foot">
@@ -710,12 +739,96 @@ function initEditMode() {
   // is-admin já foi adicionado antes desta chamada
   const oldLogout = document.getElementById('admin-logout');
   if (oldLogout) oldLogout.style.display = 'none';
+  // listener do upload de foto
+  const photoInput = document.getElementById('photo-input');
+  if (photoInput) photoInput.addEventListener('change', () => { if (photoInput.files[0]) uploadPhoto(photoInput.files[0]); });
 }
 
 // ============ FIM SISTEMA DE TEXTOS ============
 
+// ============ UPLOAD DE FOTO ============
+
+const PHOTO_BUCKET = 'photos';
+const PHOTO_KEY = 'profile.jpg';
+
+async function loadPhoto() {
+  try {
+    // busca a chave da foto salva no site_texts
+    const r = await fetch(SB_URL+'/rest/v1/site_texts?key=eq.photo_url&select=value', {
+      headers:{ 'apikey':SB_KEY, 'Authorization':'Bearer '+SB_KEY }
+    });
+    if (!r.ok) return;
+    const rows = await r.json();
+    if (!rows.length) return;
+    const url = rows[0].value;
+    applyPhoto(url);
+  } catch(e) { console.warn('loadPhoto:', e); }
+}
+
+function applyPhoto(url) {
+  if (!url) return;
+  // hero
+  const heroImg = document.querySelector('.hphoto');
+  if (heroImg) { heroImg.src = url; heroImg.alt = 'Babli Media'; }
+  // contato
+  const contactImg = document.querySelector('.cphoto img');
+  if (contactImg) { contactImg.src = url; contactImg.alt = 'Babli Media'; }
+  // preview no painel
+  const preview = document.getElementById('photo-preview');
+  const placeholder = document.getElementById('photo-placeholder');
+  if (preview) { preview.src = url; preview.style.display = 'block'; }
+  if (placeholder) placeholder.style.display = 'none';
+}
+
+async function uploadPhoto(file) {
+  if (!file) return;
+  if (!file.type.startsWith('image/')) { toast('Apenas imagens são permitidas!'); return; }
+  if (file.size > 10 * 1024 * 1024) { toast('Foto muito grande (máx 10MB)'); return; }
+
+  const progress = document.getElementById('photo-progress');
+  const fill = document.getElementById('photo-progress-fill');
+  const progressText = document.getElementById('photo-progress-text');
+  progress.style.display = 'flex';
+
+  let p = 0;
+  const iv = setInterval(() => { p = Math.min(p + 15, 85); fill.style.width = p + '%'; }, 200);
+
+  try {
+    // faz upload pro storage (upsert para sobrescrever)
+    const r = await sbReq('/storage/v1/object/'+PHOTO_BUCKET+'/'+PHOTO_KEY, {
+      method: 'POST',
+      headers: { 'Content-Type': file.type, 'x-upsert': 'true' },
+      body: file
+    });
+    clearInterval(iv); fill.style.width = '100%';
+    if (!r.ok) { const er = await r.json().catch(()=>({})); throw new Error(er.message||'upload error'); }
+
+    // monta URL pública com cache-bust
+    const photoUrl = SB_URL+'/storage/v1/object/public/'+PHOTO_BUCKET+'/'+PHOTO_KEY+'?t='+Date.now();
+
+    // salva URL no site_texts
+    await sbReq('/rest/v1/site_texts', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Prefer': 'resolution=merge-duplicates' },
+      body: JSON.stringify([{ key: 'photo_url', value: photoUrl, updated_at: new Date().toISOString() }])
+    });
+
+    progressText.textContent = '✓ Foto enviada!';
+    setTimeout(() => { progress.style.display = 'none'; fill.style.width = '0%'; }, 1000);
+    applyPhoto(photoUrl);
+    toast('Foto atualizada com sucesso!', 'ok');
+  } catch(e) {
+    clearInterval(iv);
+    progress.style.display = 'none';
+    toast('Erro: ' + e.message);
+  }
+}
+
+// ============ FIM UPLOAD DE FOTO ============
+
 loadVideos();
 loadTexts();
+loadPhoto();
 </script>
 </body>
 </html>
