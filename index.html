@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Seu Nome - Social Media &amp; Criadora de Conteudo</title>
+<title>Babli Media - Social Media &amp; Criadora de Conteudo</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--black:#0a0a0a;--red:#cc1a1a;--red2:#e02020;--white:#f5f0eb;--g1:#1a1a1a;--g2:#2a2a2a;--gt:#888;}
@@ -51,7 +51,7 @@ section{padding:100px 60px;}
 .stitle{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,58px);font-weight:900;line-height:1.1;color:var(--white);margin-bottom:24px;}
 .stitle em{font-style:italic;color:var(--red);}
 #sobre{background:var(--g1);position:relative;overflow:hidden;}
-#sobre::before{content:'SEU NOME';position:absolute;top:-20px;right:-20px;font-family:'Playfair Display',serif;font-size:200px;font-weight:900;color:rgba(255,255,255,.02);pointer-events:none;white-space:nowrap;}
+#sobre::before{content:'BABLI MEDIA';position:absolute;top:-20px;right:-20px;font-family:'Playfair Display',serif;font-size:200px;font-weight:900;color:rgba(255,255,255,.02);pointer-events:none;white-space:nowrap;}
 .sgrid{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:center;position:relative;z-index:1;}
 .sphotos{display:grid;grid-template-columns:1fr;grid-template-rows:460px;gap:0;}
 .sphoto{overflow:hidden;position:relative;background:transparent;}
@@ -138,6 +138,31 @@ footer{background:var(--g1);padding:40px 60px;display:flex;align-items:center;ju
 .toast{position:fixed;bottom:30px;right:30px;background:var(--g2);color:var(--white);padding:14px 22px;font-size:13px;font-weight:600;border-left:3px solid var(--red);z-index:9999;opacity:0;transform:translateX(20px);transition:all .3s;pointer-events:none;}
 .toast.show{opacity:1;transform:translateX(0);}
 .toast.ok{border-color:#22c55e;}
+/* Admin edit styles */
+.admin-fab{position:fixed;bottom:28px;left:28px;z-index:9997;display:none;flex-direction:column;gap:10px;align-items:flex-start;}
+body.is-admin .admin-fab{display:flex;}
+.admin-fab-btn{background:var(--red);color:white;border:none;padding:12px 20px;font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;gap:8px;box-shadow:0 4px 20px rgba(204,26,26,.5);transition:background .2s,transform .2s;}
+.admin-fab-btn:hover{background:var(--red2);transform:translateY(-2px);}
+.admin-fab-btn.ghost{background:#1a1a1a;border:1px solid rgba(204,26,26,.4);color:#aaa;box-shadow:none;}
+.admin-fab-btn.ghost:hover{border-color:var(--red);color:white;}
+/* Painel lateral de edição */
+.edit-panel{position:fixed;top:0;right:-420px;width:400px;height:100vh;background:#111;border-left:2px solid var(--red);z-index:10002;overflow-y:auto;transition:right .35s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;}
+.edit-panel.open{right:0;}
+.ep-head{background:#1a1a1a;padding:20px 24px;border-bottom:1px solid rgba(255,255,255,.07);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:2;}
+.ep-head h3{font-family:'Playfair Display',serif;font-size:17px;color:var(--white);}
+.ep-head h3 em{color:var(--red);font-style:italic;}
+.ep-close{background:transparent;border:none;color:#888;font-size:22px;cursor:pointer;line-height:1;padding:4px;}
+.ep-close:hover{color:white;}
+.ep-body{padding:20px 24px;display:flex;flex-direction:column;gap:18px;flex:1;}
+.ep-field label{display:block;font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:6px;}
+.ep-field textarea,.ep-field input[type=text]{width:100%;background:#0a0a0a;border:1px solid rgba(255,255,255,.1);color:#f5f0eb;padding:10px 12px;font-size:13px;font-family:'Syne',sans-serif;outline:none;box-sizing:border-box;resize:vertical;line-height:1.6;transition:border-color .2s;}
+.ep-field textarea:focus,.ep-field input[type=text]:focus{border-color:rgba(204,26,26,.6);}
+.ep-field small{display:block;font-size:10px;color:#555;margin-top:4px;line-height:1.5;}
+.ep-foot{padding:16px 24px;border-top:1px solid rgba(255,255,255,.07);background:#1a1a1a;position:sticky;bottom:0;}
+.ep-save{width:100%;background:var(--red);color:white;border:none;padding:14px;font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:background .2s;}
+.ep-save:hover{background:var(--red2);}
+.ep-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:10001;display:none;}
+.ep-overlay.open{display:block;}
 .wabtn{position:fixed;bottom:90px;right:28px;width:56px;height:56px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:9997;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:transform .2s,box-shadow .2s;cursor:none;}
 .wabtn:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,.6);}
 @media(max-width:900px){
@@ -156,13 +181,28 @@ footer{background:var(--g1);padding:40px 60px;display:flex;align-items:center;ju
 </head>
 <body>
 <div class="cursor" id="cur"></div>
+<div class="admin-fab" id="admin-fab">
+  <button class="admin-fab-btn" onclick="openEditPanel()">✏ Editar Textos</button>
+  <button class="admin-fab-btn ghost" onclick="sessionStorage.removeItem('sb_token');location.href=location.pathname;">Sair do Admin</button>
+</div>
+<div class="ep-overlay" id="ep-overlay" onclick="closeEditPanel()"></div>
+<div class="edit-panel" id="edit-panel">
+  <div class="ep-head">
+    <h3>Editar <em>Textos</em></h3>
+    <button class="ep-close" onclick="closeEditPanel()">✕</button>
+  </div>
+  <div class="ep-body" id="ep-body"></div>
+  <div class="ep-foot">
+    <button class="ep-save" id="ep-save-btn" onclick="saveAllTexts()">💾 Salvar e Publicar</button>
+  </div>
+</div>
 <div class="cring" id="cring"></div>
 <div class="toast" id="toast"></div>
-<a href="https://wa.me/5568992547857" target="_blank" class="wabtn" aria-label="WhatsApp">
+<a href="https://wa.me/5568992547857" target="_blank" class="wabtn" id="wa-fab" aria-label="WhatsApp">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 <nav id="nav">
-  <a href="#hero" class="nav-logo">S<span>.</span>Nome</a>
+  <a href="#hero" class="nav-logo">Babli<span>.</span>Media</a>
   <ul class="nav-links">
     <li><a href="#sobre">Sobre</a></li>
     <li><a href="#trabalhos">Trabalhos</a></li>
@@ -174,7 +214,7 @@ footer{background:var(--g1);padding:40px 60px;display:flex;align-items:center;ju
   <div class="hbg"></div><div class="hlines"></div>
   <div class="hcontent fade-up">
     <div class="htag">Social Media &amp; Criadora de Conteudo</div>
-    <h1 class="hname">Seu<br><em>Nome</em></h1>
+    <h1 class="hname">Babli<br><em>Media</em></h1>
     <p class="hdesc">Transformo marcas em presenca digital real com estrategia, estetica e conteudo que conecta, inspira e converte em resultados.</p>
     <div class="hcta">
       <a href="#trabalhos" class="btn-p">Ver Trabalhos</a>
@@ -188,9 +228,9 @@ footer{background:var(--g1);padding:40px 60px;display:flex;align-items:center;ju
     </div>
   </div>
   <div class="hstats fade-up" style="transition-delay:.4s">
-    <div class="stat"><span class="snum">3+</span><span class="slabel">Anos de experiencia</span></div>
-    <div class="stat"><span class="snum">&#8734;</span><span class="slabel">Conteudos criados</span></div>
-    <div class="stat"><span class="snum">100%</span><span class="slabel">Dedicacao</span></div>
+    <div class="stat"><span class="snum" id="stat1-num">3+</span><span class="slabel" id="stat1-lbl">Anos de experiencia</span></div>
+    <div class="stat"><span class="snum" id="stat2-num">&#8734;</span><span class="slabel" id="stat2-lbl">Conteudos criados</span></div>
+    <div class="stat"><span class="snum" id="stat3-num">100%</span><span class="slabel" id="stat3-lbl">Dedicacao</span></div>
   </div>
 </section>
 <section id="sobre">
@@ -198,16 +238,16 @@ footer{background:var(--g1);padding:40px 60px;display:flex;align-items:center;ju
     <div class="sphotos fade-up">
       <div class="sphoto" style="background:#111;display:flex;align-items:center;justify-content:center;grid-column:1/-1;grid-row:1/-1;">
         <div style="text-align:center;padding:40px;">
-          <div style="font-family:'Playfair Display',serif;font-size:72px;color:var(--red);font-weight:900;font-style:italic;line-height:1;">BL</div>
+          <div style="font-family:'Playfair Display',serif;font-size:72px;color:var(--red);font-weight:900;font-style:italic;line-height:1;">BM</div>
           <div style="font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gt);margin-top:10px;">Portfolio 2026</div>
         </div>
       </div>
     </div>
     <div class="stext fade-up" style="transition-delay:.15s">
       <div class="slbl">Sobre mim</div>
-      <h2 class="stitle">Seu <em>Nome</em></h2>
-      <p>Ola! Sou <strong>Social Media e Criadora de Conteudo</strong> — adicione sua bio aqui.</p>
-      <p>Adicione mais informações sobre você aqui.</p>
+      <h2 class="stitle">Babli <em>Media</em></h2>
+      <p id="sobre-bio1">Ola! Somos a <strong>Babli Media</strong> — adicione sua bio aqui.</p>
+      <p id="sobre-bio2">Adicione mais informações sobre você aqui.</p>
       <div class="skgrid">
         <div class="sktag">Edicao Audiovisual</div>
         <div class="sktag">Design Grafico</div>
@@ -299,27 +339,27 @@ footer{background:var(--g1);padding:40px 60px;display:flex;align-items:center;ju
   <h2 class="stitle">Vamos <em>Conversar?</em></h2>
   <div class="cgrid">
     <div class="cinfo fade-up">
-      <a href="https://wa.me/5568992547857" target="_blank" class="citem">
+      <a href="https://wa.me/5568992547857" target="_blank" class="citem" id="contact-wa">
         <span class="cico">&#128172;</span>
-        <div><span class="clbl">WhatsApp</span><span class="cval">(68) 99254-7857</span></div>
+        <div><span class="clbl">WhatsApp</span><span class="cval" id="contact-wa-val">(68) 99254-7857</span></div>
       </a>
-      <a href="https://instagram.com/seuinstagram" target="_blank" class="citem">
+      <a href="https://instagram.com/seuinstagram" target="_blank" class="citem" id="contact-ig">
         <span class="cico">&#128247;</span>
-        <div><span class="clbl">Instagram</span><span class="cval">@seuinstagram</span></div>
+        <div><span class="clbl">Instagram</span><span class="cval" id="contact-ig-val">@seuinstagram</span></div>
       </a>
-      <a href="mailto:seuemail@gmail.com" class="citem">
+      <a href="mailto:seuemail@gmail.com" class="citem" id="contact-email">
         <span class="cico">&#9993;</span>
-        <div><span class="clbl">E-mail</span><span class="cval">seuemail@gmail.com</span></div>
+        <div><span class="clbl">E-mail</span><span class="cval" id="contact-email-val">seuemail@gmail.com</span></div>
       </a>
-      <a href="https://wa.me/5568992547857" target="_blank" class="btn-p" style="align-self:flex-start;margin-top:8px;">Iniciar Conversa</a>
+      <a href="https://wa.me/5568992547857" target="_blank" class="btn-p" id="contact-wa-btn" style="align-self:flex-start;margin-top:8px;">Iniciar Conversa</a>
     </div>
     <div class="cphoto fade-up" style="transition-delay:.2s"><img src="" alt="Sua foto/nome">
     </div>
   </div>
 </section>
 <footer>
-  <a href="#hero" class="flogo">S<span>.</span>Nome</a>
-  <p class="fcopy">2025 Seu Nome - Social Media &amp; Criadora de Conteudo</p>
+  <a href="#hero" class="flogo">Babli<span>.</span>Media</a>
+  <p class="fcopy">2026 Babli Media - Social Media &amp; Criadora de Conteudo</p>
 </footer>
 <script>
 const SB_URL='https://ugqzsmtbcgsbpyijbsza.supabase.co';
@@ -416,6 +456,7 @@ if(new URLSearchParams(location.search).get('admin')==='1'){
       document.getElementById('admin-tools').style.display='block';
       document.getElementById('admin-logout').style.display='inline-flex';
       document.body.classList.add('is-admin');
+      initEditMode();
     } else {
       showLoginModal();
     }
@@ -457,6 +498,7 @@ function showLoginModal(){
       document.getElementById('admin-tools').style.display='block';
       document.getElementById('admin-logout').style.display='inline-flex';
       document.body.classList.add('is-admin');
+      initEditMode();
     } else {
       err.textContent='E-mail ou senha incorretos.';
       err.style.display='block';
@@ -476,7 +518,7 @@ async function doUpload(files){
   const caption=document.getElementById('vcaption').value.trim();
   for(const file of files){
     if(!file.type.startsWith('video/')){toast('Apenas vídeos são permitidos!');continue;}
-    if(file.size>52428800){toast(file.name+' é muito grande (máx 50MB)');continue;}
+    if(file.size>1073741824){toast(file.name+' é muito grande (máx 1GB)');continue;}
     const pg=document.getElementById('uprog'),bar=document.getElementById('ubar'),sta=document.getElementById('usta');
     pg.style.display='block';sta.style.display='block';
     sta.textContent='Enviando '+file.name+'...';bar.style.width='0%';
@@ -506,7 +548,174 @@ async function doUpload(files){
   vinput.value='';
 }
 
+// ============ SISTEMA DE TEXTOS EDITÁVEIS ============
+
+const TEXT_FIELDS = [
+  { key:'hero_tag',    sel:'.htag',           label:'Tag do hero',              hint:'Ex: Social Media & Criadora de Conteudo',            multi:false },
+  { key:'hero_name',   sel:'.hname',          label:'Nome principal',            hint:'Use <em>texto</em> para itálico vermelho, <br> para quebra de linha', multi:true  },
+  { key:'hero_desc',   sel:'.hdesc',          label:'Descrição do hero',         hint:'Frase que aparece embaixo do nome',                   multi:true  },
+  { key:'stat1_num',   sel:'#stat1-num',      label:'Stat 1 — Número',           hint:'Ex: 3+',                                             multi:false },
+  { key:'stat1_lbl',   sel:'#stat1-lbl',      label:'Stat 1 — Rótulo',           hint:'Ex: Anos de experiência',                            multi:false },
+  { key:'stat2_num',   sel:'#stat2-num',      label:'Stat 2 — Número',           hint:'Ex: ∞',                                              multi:false },
+  { key:'stat2_lbl',   sel:'#stat2-lbl',      label:'Stat 2 — Rótulo',           hint:'Ex: Conteúdos criados',                              multi:false },
+  { key:'stat3_num',   sel:'#stat3-num',      label:'Stat 3 — Número',           hint:'Ex: 100%',                                           multi:false },
+  { key:'stat3_lbl',   sel:'#stat3-lbl',      label:'Stat 3 — Rótulo',           hint:'Ex: Dedicação',                                      multi:false },
+  { key:'sobre_title', sel:'.stext .stitle',  label:'Título — Sobre',            hint:'Use <em>texto</em> para itálico vermelho',            multi:false },
+  { key:'sobre_bio1',  sel:'#sobre-bio1',     label:'Bio — Parágrafo 1',         hint:'Primeira frase/parágrafo da bio',                    multi:true  },
+  { key:'sobre_bio2',  sel:'#sobre-bio2',     label:'Bio — Parágrafo 2',         hint:'Segundo parágrafo da bio',                           multi:true  },
+  { key:'footer_copy', sel:'.fcopy',          label:'Rodapé',                    hint:'Texto de copyright',                                 multi:false },
+  { key:'skills',      sel:'.skgrid',         label:'Habilidades (tags)',         hint:'Uma habilidade por linha. Ex: Canva Pro',             multi:true  },
+  { key:'whatsapp',    sel:'#contact-wa-val', label:'WhatsApp — número visível',  hint:'Ex: (68) 99254-7857',                                multi:false },
+  { key:'whatsapp_num',sel:null,              label:'WhatsApp — número (só dígitos)', hint:'Ex: 5568992547857  (com DDI 55)',                 multi:false },
+  { key:'instagram',   sel:'#contact-ig-val', label:'Instagram — @ visível',      hint:'Ex: @babli.media',                                   multi:false },
+  { key:'instagram_url',sel:null,             label:'Instagram — link completo',  hint:'Ex: https://instagram.com/babli.media',               multi:false },
+  { key:'email',       sel:'#contact-email-val', label:'E-mail',                  hint:'Ex: contato@bablimedia.com',                         multi:false },
+];
+
+let unsavedChanges = {};
+
+async function loadTexts() {
+  try {
+    const r = await fetch(SB_URL+'/rest/v1/site_texts?select=key,value', {
+      headers:{ 'apikey':SB_KEY, 'Authorization':'Bearer '+SB_KEY }
+    });
+    if (!r.ok) return;
+    const rows = await r.json();
+    const data = {};
+    rows.forEach(row => { data[row.key] = row.value; });
+
+    rows.forEach(row => {
+      const field = TEXT_FIELDS.find(f => f.key === row.key);
+      if (!field || !field.sel) return;
+      const el = document.querySelector(field.sel);
+      if (!el) return;
+      if (row.key === 'skills') {
+        const tags = row.value.split('\n').map(t=>t.trim()).filter(Boolean);
+        el.innerHTML = tags.map(t=>`<div class="sktag">${t}</div>`).join('');
+      } else {
+        el.innerHTML = row.value;
+      }
+    });
+
+    // aplica links de contato em todos os lugares
+    if (data['whatsapp_num']) {
+      const waUrl = 'https://wa.me/' + data['whatsapp_num'].replace(/\D/g,'');
+      ['#wa-fab','#contact-wa','#contact-wa-btn'].forEach(sel => {
+        const el = document.querySelector(sel);
+        if (el) el.href = waUrl;
+      });
+      document.querySelectorAll('.pcta').forEach(el => el.href = waUrl);
+    }
+    if (data['instagram_url']) {
+      const el = document.querySelector('#contact-ig');
+      if (el) el.href = data['instagram_url'];
+    }
+    if (data['email']) {
+      const el = document.querySelector('#contact-email');
+      if (el) el.href = 'mailto:' + data['email'];
+    }
+  } catch(e) { console.warn('loadTexts:', e); }
+}
+
+function openEditPanel() {
+  const body = document.getElementById('ep-body');
+  body.innerHTML = '';
+  TEXT_FIELDS.forEach(field => {
+    let current = '';
+    if (field.key === 'skills') {
+      const el = document.querySelector(field.sel);
+      current = el ? [...el.querySelectorAll('.sktag')].map(t=>t.textContent.trim()).join('\n') : '';
+    } else if (field.sel) {
+      const el = document.querySelector(field.sel);
+      current = el ? el.innerHTML.replace(/<[^>]+>/g,'').trim() : '';
+    } else {
+      // campos sem sel (whatsapp_num, instagram_url) — pega do unsavedChanges ou vazio
+      current = unsavedChanges[field.key] || '';
+    }
+    const inputHtml = field.multi
+      ? `<textarea id="epf-${field.key}" rows="${field.key==='skills'?9:3}">${current}</textarea>`
+      : `<input type="text" id="epf-${field.key}" value="${current.replace(/"/g,'&quot;').replace(/</g,'&lt;')}">`;
+    const div = document.createElement('div');
+    div.className = 'ep-field';
+    div.innerHTML = `<label>${field.label}</label>${inputHtml}<small>${field.hint}</small>`;
+    body.appendChild(div);
+  });
+  document.getElementById('edit-panel').classList.add('open');
+  document.getElementById('ep-overlay').classList.add('open');
+}
+
+function closeEditPanel() {
+  document.getElementById('edit-panel').classList.remove('open');
+  document.getElementById('ep-overlay').classList.remove('open');
+}
+
+async function saveAllTexts() {
+  // lê todos os campos do painel e aplica na página
+  TEXT_FIELDS.forEach(field => {
+    const input = document.getElementById('epf-'+field.key);
+    if (!input) return;
+    const val = input.value.trim();
+    if (field.sel) {
+      const el = document.querySelector(field.sel);
+      if (el) {
+        if (field.key === 'skills') {
+          const tags = val.split('\n').map(t=>t.trim()).filter(Boolean);
+          el.innerHTML = tags.map(t=>`<div class="sktag">${t}</div>`).join('');
+        } else {
+          el.innerHTML = val;
+        }
+      }
+    }
+    unsavedChanges[field.key] = val;
+  });
+
+  // aplica links de contato imediatamente
+  const waNum = unsavedChanges['whatsapp_num'];
+  if (waNum) {
+    const waUrl = 'https://wa.me/' + waNum.replace(/\D/g,'');
+    ['#wa-fab','#contact-wa','#contact-wa-btn'].forEach(sel => {
+      const el = document.querySelector(sel); if (el) el.href = waUrl;
+    });
+    document.querySelectorAll('.pcta').forEach(el => el.href = waUrl);
+  }
+  const igUrl = unsavedChanges['instagram_url'];
+  if (igUrl) { const el = document.querySelector('#contact-ig'); if (el) el.href = igUrl; }
+  const email = unsavedChanges['email'];
+  if (email) { const el = document.querySelector('#contact-email'); if (el) el.href = 'mailto:'+email; }
+
+  const btn = document.getElementById('ep-save-btn');
+  btn.textContent = 'Salvando...';
+  btn.disabled = true;
+  try {
+    const rows = Object.entries(unsavedChanges).map(([k,v]) => ({
+      key: k, value: v, updated_at: new Date().toISOString()
+    }));
+    const r = await sbReq('/rest/v1/site_texts', {
+      method:'POST',
+      headers:{ 'Content-Type':'application/json', 'Prefer':'resolution=merge-duplicates' },
+      body: JSON.stringify(rows)
+    });
+    if (!r.ok) throw new Error('Falha ao salvar');
+    unsavedChanges = {};
+    closeEditPanel();
+    toast('Textos salvos e publicados!', 'ok');
+  } catch(e) {
+    toast('Erro: ' + e.message);
+  }
+  btn.textContent = '💾 Salvar e Publicar';
+  btn.disabled = false;
+}
+
+function initEditMode() {
+  // is-admin já foi adicionado antes desta chamada
+  const oldLogout = document.getElementById('admin-logout');
+  if (oldLogout) oldLogout.style.display = 'none';
+}
+
+// ============ FIM SISTEMA DE TEXTOS ============
+
 loadVideos();
+loadTexts();
 </script>
 </body>
 </html>
