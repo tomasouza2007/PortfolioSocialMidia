@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Babli Media - Social Media &amp; Criadora de Conteudo</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<title>Babli Mídia - Social Media &amp; Criadora de Conteudo</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Syne:wght@400;600;700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 <style>
 :root{--black:#0a0a0a;--red:#cc1a1a;--red2:#e02020;--white:#f5f0eb;--g1:#1a1a1a;--g2:#2a2a2a;--gt:#888;}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
@@ -14,8 +14,8 @@ body{background:var(--black);color:var(--white);font-family:'Syne',sans-serif;ov
 .cring{width:36px;height:36px;border:1px solid rgba(204,26,26,.4);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .15s ease;}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:24px 60px;background:linear-gradient(to bottom,rgba(10,10,10,.95) 0%,transparent 100%);transition:backdrop-filter .3s,background .3s;}
 nav.scrolled{background:rgba(10,10,10,.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(204,26,26,.15);}
-.nav-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--white);text-decoration:none;letter-spacing:.02em;}
-.nav-logo span{color:var(--red);}
+.nav-logo{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--white);text-decoration:none;letter-spacing:.12em;text-transform:uppercase;}
+.nav-logo .logo-accent{font-family:'Dancing Script',cursive;color:var(--red);font-weight:700;letter-spacing:.02em;font-size:22px;text-transform:none;}
 .nav-links{display:flex;gap:40px;list-style:none;}
 .nav-links a{color:var(--gt);text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;transition:color .2s;position:relative;}
 .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--red);transition:width .3s ease;}
@@ -27,8 +27,8 @@ nav.scrolled{background:rgba(10,10,10,.97);backdrop-filter:blur(20px);border-bot
 .hcontent{position:relative;z-index:2;padding-right:40px;}
 .htag{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:28px;}
 .htag::before{content:'';width:30px;height:1px;background:var(--red);}
-.hname{font-family:'Playfair Display',serif;font-size:clamp(52px,6vw,82px);font-weight:900;line-height:1.0;color:var(--white);margin-bottom:20px;}
-.hname em{font-style:italic;color:var(--red);}
+.hname{font-family:'Syne',sans-serif;font-size:clamp(52px,6vw,88px);font-weight:800;line-height:1.0;color:var(--white);margin-bottom:20px;text-transform:uppercase;letter-spacing:.04em;}
+.hname .hname-accent{display:block;font-family:'Dancing Script',cursive;font-weight:700;color:var(--red);text-transform:none;letter-spacing:.02em;line-height:1.2;font-size:clamp(58px,7vw,100px);}
 .hdesc{font-size:15px;line-height:1.8;color:var(--gt);max-width:440px;margin-bottom:40px;font-weight:400;}
 .hcta{display:flex;gap:16px;align-items:center;flex-wrap:wrap;}
 .btn-p{background:var(--red);color:white;padding:14px 32px;font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border:none;text-decoration:none;display:inline-block;transition:background .2s,transform .2s;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));cursor:none;}
@@ -48,10 +48,11 @@ nav.scrolled{background:rgba(10,10,10,.97);backdrop-filter:blur(20px);border-bot
 section{padding:100px 60px;}
 .slbl{font-size:11px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:12px;margin-bottom:20px;}
 .slbl::before{content:'';width:24px;height:1px;background:var(--red);}
-.stitle{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,58px);font-weight:900;line-height:1.1;color:var(--white);margin-bottom:24px;}
-.stitle em{font-style:italic;color:var(--red);}
+.stitle{font-family:'Syne',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:800;line-height:1.1;color:var(--white);margin-bottom:24px;text-transform:uppercase;letter-spacing:.03em;}
+.stitle .stitle-accent{font-family:'Dancing Script',cursive;font-weight:700;color:var(--red);text-transform:none;letter-spacing:.02em;font-size:1.15em;}
+.stitle em{font-family:'Dancing Script',cursive;font-style:normal;color:var(--red);font-size:1.1em;}
 #sobre{background:var(--g1);position:relative;overflow:hidden;}
-#sobre::before{content:'BABLI MEDIA';position:absolute;top:-20px;right:-20px;font-family:'Playfair Display',serif;font-size:200px;font-weight:900;color:rgba(255,255,255,.02);pointer-events:none;white-space:nowrap;}
+#sobre::before{content:'BABLI MÍDIA';position:absolute;top:-20px;right:-20px;font-family:'Playfair Display',serif;font-size:200px;font-weight:900;color:rgba(255,255,255,.02);pointer-events:none;white-space:nowrap;}
 .sgrid{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:center;position:relative;z-index:1;}
 .sphotos{display:grid;grid-template-columns:1fr;grid-template-rows:460px;gap:0;}
 .sphoto{overflow:hidden;position:relative;background:transparent;}
@@ -95,7 +96,7 @@ section{padding:100px 60px;}
 body.is-admin .vdel{display:flex;}
 .empty{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--gt);}
 .eico{font-size:48px;margin-bottom:16px;opacity:.4;}
-#servicos{display:none;}
+#servicos{display:block;background:var(--g1);}
 .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:60px;}
 .pacote{background:var(--black);padding:48px 36px;position:relative;transition:transform .3s;}
 .pacote:hover{transform:translateY(-6px);}
@@ -111,8 +112,8 @@ body.is-admin .vdel{display:flex;}
 .pitems{list-style:none;display:flex;flex-direction:column;gap:12px;}
 .pitems li{font-size:13px;color:#aaa;display:flex;gap:10px;align-items:flex-start;line-height:1.5;}
 .pacote.dest .pitems li{color:rgba(255,255,255,.85);}
-.pitems li::before{content:'\2736';color:var(--red);font-size:8px;margin-top:4px;flex-shrink:0;}
-.pacote.dest .pitems li::before{color:rgba(255,255,255,.6);}
+.pitems li::before{content:'✓';color:var(--red);font-size:11px;font-weight:800;margin-top:2px;flex-shrink:0;}
+.pacote.dest .pitems li::before{content:'✓';color:rgba(255,255,255,.9);}
 .pcta{display:block;margin-top:36px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:var(--white);text-decoration:none;padding:14px;text-align:center;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transition:all .2s;}
 .pcta:hover{background:rgba(255,255,255,.12);}
 .pacote.dest .pcta{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.3);}
@@ -130,8 +131,8 @@ body.is-admin .vdel{display:flex;}
 .cphoto::before{content:'';position:absolute;top:-20px;left:-20px;right:20px;bottom:20px;border:1px solid rgba(204,26,26,.3);z-index:-1;}
 .cphoto::after{content:'';position:absolute;bottom:-12px;right:-12px;width:80px;height:80px;background:var(--red);opacity:.08;z-index:-1;}
 footer{background:var(--g1);padding:40px 60px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.05);}
-.flogo{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--white);text-decoration:none;}
-.flogo span{color:var(--red);}
+.flogo{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--white);text-decoration:none;letter-spacing:.12em;text-transform:uppercase;}
+.flogo .logo-accent{font-family:'Dancing Script',cursive;color:var(--red);font-weight:700;letter-spacing:.02em;font-size:22px;text-transform:none;}
 .fcopy{font-size:12px;color:var(--gt);}
 .fade-up{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease;}
 .fade-up.visible{opacity:1;transform:translateY(0);}
@@ -195,6 +196,7 @@ body.is-admin .admin-fab{display:flex;}
 <div class="cursor" id="cur"></div>
 <div class="admin-fab" id="admin-fab">
   <button class="admin-fab-btn" onclick="openEditPanel()">✏ Editar Textos</button>
+  <button class="admin-fab-btn" onclick="openCombosPanel()" style="background:#1a1a1a;border:1px solid rgba(204,26,26,.5);">💰 Editar Planos</button>
   <button class="admin-fab-btn ghost" onclick="sessionStorage.removeItem('sb_token');location.href=location.pathname;">Sair do Admin</button>
 </div>
 <div class="ep-overlay" id="ep-overlay" onclick="closeEditPanel()"></div>
@@ -282,11 +284,11 @@ body.is-admin .admin-fab{display:flex;}
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 <nav id="nav">
-  <a href="#hero" class="nav-logo">Babli<span>.</span>Media</a>
+  <a href="#hero" class="nav-logo">BABLI <span class="logo-accent">Mídia</span></a>
   <ul class="nav-links">
     <li><a href="#sobre">Sobre</a></li>
     <li><a href="#trabalhos">Trabalhos</a></li>
-    <li><a href="#servicos">Servicos</a></li>
+    <li><a href="#servicos">Serviços</a></li>
     <li><a href="#contato">Contato</a></li>
   </ul>
 </nav>
@@ -294,7 +296,7 @@ body.is-admin .admin-fab{display:flex;}
   <div class="hbg"></div><div class="hlines"></div>
   <div class="hcontent fade-up">
     <div class="htag">Social Media &amp; Criadora de Conteudo</div>
-    <h1 class="hname">Babli<br><em>Media</em></h1>
+    <h1 class="hname">BABLI<span class="hname-accent">Mídia</span></h1>
     <p class="hdesc">Transformo marcas em presenca digital real com estrategia, estetica e conteudo que conecta, inspira e converte em resultados.</p>
     <div class="hcta">
       <a href="#trabalhos" class="btn-p">Ver Trabalhos</a>
@@ -325,7 +327,7 @@ body.is-admin .admin-fab{display:flex;}
     </div>
     <div class="stext fade-up" style="transition-delay:.15s">
       <div class="slbl">Sobre mim</div>
-      <h2 class="stitle">Babli <em>Media</em></h2>
+      <h2 class="stitle">BABLI <span class="stitle-accent">Mídia</span></h2>
       <p id="sobre-bio1">Ola! Somos a <strong>Babli Media</strong> — adicione sua bio aqui.</p>
       <p id="sobre-bio2">Adicione mais informações sobre você aqui.</p>
       <div class="skgrid">
@@ -367,48 +369,54 @@ body.is-admin .admin-fab{display:flex;}
   </div>
 </section>
 <section id="servicos">
-  <div class="slbl">Servicos</div>
-  <h2 class="stitle">Pacotes <em>Masters</em></h2>
-  <div class="pgrid fade-up">
-    <div class="pacote">
-      <div class="plbl">Basico</div>
-      <div class="pname">Pacote Starter</div>
-      <div class="pprice"><span>R$</span> 900</div>
+  <div class="slbl">Serviços</div>
+  <h2 class="stitle">Planos & <em>Combos</em></h2>
+  <p style="color:var(--gt);font-size:14px;max-width:560px;line-height:1.8;margin-bottom:16px;">Escolha o plano ideal para o seu negócio. Todos incluem gestão estratégica, criação de conteúdo e suporte direto via WhatsApp.</p>
+  <div id="servicos-local" style="display:inline-flex;align-items:center;gap:8px;margin-bottom:48px;font-size:12px;color:var(--gt);font-weight:600;letter-spacing:.08em;text-transform:uppercase;">
+    <span style="color:var(--red);">📍</span> Atendimento em Rio Branco, Acre — e todo o Brasil online
+  </div>
+  <div class="pgrid fade-up" id="pgrid">
+    <div class="pacote" id="pacote-1">
+      <div class="plbl" id="plbl-1">Básico</div>
+      <div class="pname" id="pname-1">Pacote Starter</div>
+      <div class="pprice"><span>R$</span> <span id="pprice-1">900</span></div>
       <div class="pdiv"></div>
-      <ul class="pitems">
-        <li>6 Reels por mes</li>
-        <li>Planejamento estrategico de conteudo</li>
-        <li>Pesquisa de hashtags estrategicas</li>
+      <ul class="pitems" id="pitems-1">
+        <li>6 Reels por mês</li>
+        <li>Planejamento estratégico de conteúdo</li>
+        <li>Pesquisa de hashtags estratégicas</li>
         <li>Direcionamento de Stories</li>
-        <li>Organizacao e otimizacao do perfil</li>
+        <li>Organização e otimização do perfil</li>
       </ul>
       <a href="https://wa.me/5568992547857" class="pcta" target="_blank">Quero este plano</a>
     </div>
-    <div class="pacote dest">
-      <div class="plbl">&#9733; Mais popular</div>
-      <div class="pname">Pacote Medio</div>
-      <div class="pprice"><span>R$</span> 1500</div>
+    <div class="pacote dest" id="pacote-2">
+      <div class="plbl" id="plbl-2">★ Mais popular</div>
+      <div class="pname" id="pname-2">Pacote Médio</div>
+      <div class="pprice"><span>R$</span> <span id="pprice-2">1500</span></div>
       <div class="pdiv"></div>
-      <ul class="pitems">
-        <li>Planejamento estrategico de conteudo</li>
-        <li>Estrategia de crescimento do perfil</li>
+      <ul class="pitems" id="pitems-2">
+        <li>Planejamento estratégico de conteúdo</li>
+        <li>Estratégia de crescimento do perfil</li>
         <li>Planejamento de Stories</li>
-        <li>Pesquisa de hashtags estrategicas</li>
-        <li>Otimizacao completa do perfil</li>
+        <li>Pesquisa de hashtags estratégicas</li>
+        <li>Otimização completa do perfil</li>
+        <li>Relatório mensal de desempenho</li>
       </ul>
       <a href="https://wa.me/5568992547857" class="pcta" target="_blank">Quero este plano</a>
     </div>
-    <div class="pacote">
-      <div class="plbl">Premium</div>
-      <div class="pname">Pacote Plus</div>
-      <div class="pprice"><span>R$</span> 2500</div>
+    <div class="pacote" id="pacote-3">
+      <div class="plbl" id="plbl-3">Premium</div>
+      <div class="pname" id="pname-3">Pacote Plus</div>
+      <div class="pprice"><span>R$</span> <span id="pprice-3">2500</span></div>
       <div class="pdiv"></div>
-      <ul class="pitems">
-        <li>Planejamento estrategico completo</li>
-        <li>Planejamento e estrategia de Stories</li>
-        <li>Criacao de identidade visual para Instagram</li>
-        <li>Estrategia de posicionamento da marca</li>
-        <li>Analise de desempenho e melhorias mensais</li>
+      <ul class="pitems" id="pitems-3">
+        <li>Planejamento estratégico completo</li>
+        <li>Planejamento e estratégia de Stories</li>
+        <li>Criação de identidade visual para Instagram</li>
+        <li>Estratégia de posicionamento da marca</li>
+        <li>Análise de desempenho e melhorias mensais</li>
+        <li>Atendimento prioritário</li>
       </ul>
       <a href="https://wa.me/5568992547857" class="pcta" target="_blank">Quero este plano</a>
     </div>
@@ -423,14 +431,14 @@ body.is-admin .admin-fab{display:flex;}
         <span class="cico">&#128172;</span>
         <div><span class="clbl">WhatsApp</span><span class="cval" id="contact-wa-val">(68) 99254-7857</span></div>
       </a>
-      <a href="https://instagram.com/seuinstagram" target="_blank" class="citem" id="contact-ig">
-        <span class="cico">&#128247;</span>
-        <div><span class="clbl">Instagram</span><span class="cval" id="contact-ig-val">@seuinstagram</span></div>
-      </a>
       <a href="mailto:seuemail@gmail.com" class="citem" id="contact-email">
         <span class="cico">&#9993;</span>
         <div><span class="clbl">E-mail</span><span class="cval" id="contact-email-val">seuemail@gmail.com</span></div>
       </a>
+      <div class="citem" style="cursor:default;">
+        <span class="cico">📍</span>
+        <div><span class="clbl">Localização</span><span class="cval">Rio Branco, Acre — Brasil</span></div>
+      </div>
       <a href="https://wa.me/5568992547857" target="_blank" class="btn-p" id="contact-wa-btn" style="align-self:flex-start;margin-top:8px;">Iniciar Conversa</a>
     </div>
     <div class="cphoto fade-up" style="transition-delay:.2s"><img src="" alt="Sua foto/nome">
@@ -438,8 +446,8 @@ body.is-admin .admin-fab{display:flex;}
   </div>
 </section>
 <footer>
-  <a href="#hero" class="flogo">Babli<span>.</span>Media</a>
-  <p class="fcopy">2026 Babli Media - Social Media &amp; Criadora de Conteudo</p>
+  <a href="#hero" class="flogo">BABLI <span class="logo-accent">Mídia</span></a>
+  <p class="fcopy">2026 Babli Mídia · Rio Branco, Acre · Social Media &amp; Criadora de Conteúdo</p>
 </footer>
 <script>
 const SB_URL='https://ugqzsmtbcgsbpyijbsza.supabase.co';
@@ -632,7 +640,7 @@ async function doUpload(files){
 
 const TEXT_FIELDS = [
   { key:'hero_tag',    sel:'.htag',           label:'Tag do hero',              hint:'Ex: Social Media & Criadora de Conteudo',            multi:false },
-  { key:'hero_name',   sel:'.hname',          label:'Nome principal',            hint:'Use <em>texto</em> para itálico vermelho, <br> para quebra de linha', multi:true  },
+  { key:'hero_name',   sel:'.hname',          label:'Nome principal',            hint:'Use <em>texto</em> para itálico vermelho, <br> para quebra de linha', multi:true,  noLoad:true },
   { key:'hero_desc',   sel:'.hdesc',          label:'Descrição do hero',         hint:'Frase que aparece embaixo do nome',                   multi:true  },
   { key:'stat1_num',   sel:'#stat1-num',      label:'Stat 1 — Número',           hint:'Ex: 3+',                                             multi:false },
   { key:'stat1_lbl',   sel:'#stat1-lbl',      label:'Stat 1 — Rótulo',           hint:'Ex: Anos de experiência',                            multi:false },
@@ -640,15 +648,13 @@ const TEXT_FIELDS = [
   { key:'stat2_lbl',   sel:'#stat2-lbl',      label:'Stat 2 — Rótulo',           hint:'Ex: Conteúdos criados',                              multi:false },
   { key:'stat3_num',   sel:'#stat3-num',      label:'Stat 3 — Número',           hint:'Ex: 100%',                                           multi:false },
   { key:'stat3_lbl',   sel:'#stat3-lbl',      label:'Stat 3 — Rótulo',           hint:'Ex: Dedicação',                                      multi:false },
-  { key:'sobre_title', sel:'.stext .stitle',  label:'Título — Sobre',            hint:'Use <em>texto</em> para itálico vermelho',            multi:false },
+  { key:'sobre_title', sel:'.stext .stitle',  label:'Título — Sobre',            hint:'Use <em>texto</em> para itálico vermelho',            multi:false, noLoad:true },
   { key:'sobre_bio1',  sel:'#sobre-bio1',     label:'Bio — Parágrafo 1',         hint:'Primeira frase/parágrafo da bio',                    multi:true  },
   { key:'sobre_bio2',  sel:'#sobre-bio2',     label:'Bio — Parágrafo 2',         hint:'Segundo parágrafo da bio',                           multi:true  },
-  { key:'footer_copy', sel:'.fcopy',          label:'Rodapé',                    hint:'Texto de copyright',                                 multi:false },
+  { key:'footer_copy', sel:'.fcopy',          label:'Rodapé',                    hint:'Texto de copyright',                                 multi:false, noLoad:true },
   { key:'skills',      sel:'.skgrid',         label:'Habilidades (tags)',         hint:'Uma habilidade por linha. Ex: Canva Pro',             multi:true  },
   { key:'whatsapp',    sel:'#contact-wa-val', label:'WhatsApp — número visível',  hint:'Ex: (68) 99254-7857',                                multi:false },
   { key:'whatsapp_num',sel:null,              label:'WhatsApp — número (só dígitos)', hint:'Ex: 5568992547857  (com DDI 55)',                 multi:false },
-  { key:'instagram',   sel:'#contact-ig-val', label:'Instagram — @ visível',      hint:'Ex: @babli.media',                                   multi:false },
-  { key:'instagram_url',sel:null,             label:'Instagram — link completo',  hint:'Ex: https://instagram.com/babli.media',               multi:false },
   { key:'email',       sel:'#contact-email-val', label:'E-mail',                  hint:'Ex: contato@bablimedia.com',                         multi:false },
 ];
 
@@ -666,7 +672,7 @@ async function loadTexts() {
 
     rows.forEach(row => {
       const field = TEXT_FIELDS.find(f => f.key === row.key);
-      if (!field || !field.sel) return;
+      if (!field || !field.sel || field.noLoad) return;
       const el = document.querySelector(field.sel);
       if (!el) return;
       if (row.key === 'skills') {
@@ -758,8 +764,6 @@ async function saveAllTexts() {
     });
     document.querySelectorAll('.pcta').forEach(el => el.href = waUrl);
   }
-  const igUrl = unsavedChanges['instagram_url'];
-  if (igUrl) { const el = document.querySelector('#contact-ig'); if (el) el.href = igUrl; }
   const email = unsavedChanges['email'];
   if (email) { const el = document.querySelector('#contact-email'); if (el) el.href = 'mailto:'+email; }
 
@@ -796,6 +800,106 @@ function initEditMode() {
 }
 
 // ============ FIM SISTEMA DE TEXTOS ============
+
+// ============ COMBOS EDITÁVEIS ============
+
+const COMBOS_DEFAULT = [
+  { id:1, label:'Básico',      name:'Pacote Starter', price:'900',  items:['6 Reels por mês','Planejamento estratégico de conteúdo','Pesquisa de hashtags estratégicas','Direcionamento de Stories','Organização e otimização do perfil'] },
+  { id:2, label:'★ Mais popular', name:'Pacote Médio',  price:'1500', items:['Planejamento estratégico de conteúdo','Estratégia de crescimento do perfil','Planejamento de Stories','Pesquisa de hashtags estratégicas','Otimização completa do perfil','Relatório mensal de desempenho'] },
+  { id:3, label:'Premium',     name:'Pacote Plus',    price:'2500', items:['Planejamento estratégico completo','Planejamento e estratégia de Stories','Criação de identidade visual para Instagram','Estratégia de posicionamento da marca','Análise de desempenho e melhorias mensais','Atendimento prioritário'] },
+];
+
+function applyCombo(combo) {
+  const lbl   = document.getElementById('plbl-'+combo.id);
+  const name  = document.getElementById('pname-'+combo.id);
+  const price = document.getElementById('pprice-'+combo.id);
+  const items = document.getElementById('pitems-'+combo.id);
+  if (lbl)   lbl.textContent   = combo.label;
+  if (name)  name.textContent  = combo.name;
+  if (price) price.textContent = combo.price;
+  if (items) items.innerHTML   = combo.items.map(i=>`<li>${i}</li>`).join('');
+}
+
+async function loadCombos() {
+  try {
+    const r = await fetch(SB_URL+'/rest/v1/site_texts?key=eq.combos&select=value', {
+      headers:{ 'apikey':SB_KEY, 'Authorization':'Bearer '+SB_KEY }
+    });
+    if (!r.ok) return;
+    const rows = await r.json();
+    if (!rows.length) return;
+    const combos = JSON.parse(rows[0].value);
+    combos.forEach(applyCombo);
+    // atualiza links dos pacotes com whatsapp salvo
+  } catch(e) { console.warn('loadCombos:', e); }
+}
+
+function openCombosPanel() {
+  // lê estado atual dos combos da página
+  const combos = [1,2,3].map(id => ({
+    id,
+    label: document.getElementById('plbl-'+id)?.textContent||'',
+    name:  document.getElementById('pname-'+id)?.textContent||'',
+    price: document.getElementById('pprice-'+id)?.textContent||'',
+    items: [...(document.getElementById('pitems-'+id)?.querySelectorAll('li')||[])].map(li=>li.textContent.trim()),
+  }));
+
+  const overlay = document.createElement('div');
+  overlay.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:10003;display:flex;align-items:flex-start;justify-content:center;overflow-y:auto;padding:40px 20px;';
+  overlay.innerHTML = `
+    <div style="background:#111;border:1px solid rgba(204,26,26,.4);width:100%;max-width:700px;padding:32px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
+        <h3 style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:#f5f0eb;text-transform:uppercase;letter-spacing:.1em;">Editar Planos</h3>
+        <button id="combos-close" style="background:none;border:none;color:#888;font-size:22px;cursor:pointer;">✕</button>
+      </div>
+      ${combos.map(c=>`
+        <div style="border:1px solid rgba(255,255,255,.07);padding:20px;margin-bottom:20px;">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:14px;">Plano ${c.id}</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:12px;">
+            <div><label style="display:block;font-size:10px;color:#666;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;">Rótulo</label>
+              <input id="combo-${c.id}-label" type="text" value="${c.label}" style="width:100%;background:#0a0a0a;border:1px solid rgba(255,255,255,.1);color:#f5f0eb;padding:8px 10px;font-size:12px;font-family:'Syne',sans-serif;outline:none;box-sizing:border-box;"></div>
+            <div><label style="display:block;font-size:10px;color:#666;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;">Nome</label>
+              <input id="combo-${c.id}-name" type="text" value="${c.name}" style="width:100%;background:#0a0a0a;border:1px solid rgba(255,255,255,.1);color:#f5f0eb;padding:8px 10px;font-size:12px;font-family:'Syne',sans-serif;outline:none;box-sizing:border-box;"></div>
+            <div><label style="display:block;font-size:10px;color:#666;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;">Preço (R$)</label>
+              <input id="combo-${c.id}-price" type="text" value="${c.price}" style="width:100%;background:#0a0a0a;border:1px solid rgba(255,255,255,.1);color:#f5f0eb;padding:8px 10px;font-size:12px;font-family:'Syne',sans-serif;outline:none;box-sizing:border-box;"></div>
+          </div>
+          <label style="display:block;font-size:10px;color:#666;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;">Itens incluídos — um por linha</label>
+          <textarea id="combo-${c.id}-items" rows="6" style="width:100%;background:#0a0a0a;border:1px solid rgba(255,255,255,.1);color:#f5f0eb;padding:10px 12px;font-size:12px;font-family:'Syne',sans-serif;outline:none;box-sizing:border-box;resize:vertical;line-height:1.7;">${c.items.join('\n')}</textarea>
+        </div>
+      `).join('')}
+      <button id="combos-save" style="width:100%;background:#cc1a1a;color:white;border:none;padding:14px;font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;margin-top:4px;">💾 Salvar Planos</button>
+    </div>`;
+  document.body.appendChild(overlay);
+
+  overlay.querySelector('#combos-close').addEventListener('click', ()=>overlay.remove());
+  overlay.addEventListener('click', e=>{ if(e.target===overlay) overlay.remove(); });
+
+  overlay.querySelector('#combos-save').addEventListener('click', async ()=>{
+    const newCombos = [1,2,3].map(id=>({
+      id,
+      label: document.getElementById(`combo-${id}-label`).value.trim(),
+      name:  document.getElementById(`combo-${id}-name`).value.trim(),
+      price: document.getElementById(`combo-${id}-price`).value.trim(),
+      items: document.getElementById(`combo-${id}-items`).value.split('\n').map(s=>s.trim()).filter(Boolean),
+    }));
+    newCombos.forEach(applyCombo);
+    const btn = overlay.querySelector('#combos-save');
+    btn.textContent = 'Salvando...'; btn.disabled = true;
+    try {
+      const r = await sbReq('/rest/v1/site_texts',{
+        method:'POST',
+        headers:{'Content-Type':'application/json','Prefer':'resolution=merge-duplicates'},
+        body: JSON.stringify([{key:'combos',value:JSON.stringify(newCombos),updated_at:new Date().toISOString()}])
+      });
+      if (!r.ok) throw new Error('save fail');
+      overlay.remove();
+      toast('Planos atualizados!','ok');
+    } catch(e) { toast('Erro: '+e.message); }
+    btn.textContent='💾 Salvar Planos'; btn.disabled=false;
+  });
+}
+
+// ============ FIM COMBOS EDITÁVEIS ============
 
 // ============ UPLOAD DE FOTO ============
 
@@ -965,6 +1069,7 @@ loadVideos();
 loadTexts();
 loadPhoto();
 loadColors();
+loadCombos();
 </script>
 </body>
 </html>
